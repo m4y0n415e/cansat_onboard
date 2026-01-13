@@ -1,0 +1,50 @@
+\doxysection{gps\+\_\+module.\+h}
+\hypertarget{gps__module_8h_source}{}\label{gps__module_8h_source}\index{code/gps\_module.h@{code/gps\_module.h}}
+\doxymbox{\hyperlink{gps__module_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ GPS\_MODULE\_H}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ GPS\_MODULE\_H}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}pico/stdlib.h"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ CONFIGURATION\ MACROS}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ GPS\_BAUD\_RATE\ 9600}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ GPS\_UART\_ID\ uart0}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ GPS\_TX\_PIN\ 8}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ GPS\_RX\_PIN\ 9}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ DATA\ STRUCTURES}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }}
+\DoxyCodeLine{00041\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structgps__data__t_ad8d2f4a6a738fec4bc5bf63f6e084120}{latitude}};\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structgps__data__t_a363ee632267ad6970a4c4c675ca13eca}{longitude}};\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structgps__data__t_a314661f70c489a57e1014e81e115a373}{altitude}};\ }
+\DoxyCodeLine{00045\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{structgps__data__t_ac660bf8d350c3867099ec712e9813f44}{satellites}};\ }
+\DoxyCodeLine{00046\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{structgps__data__t_a7cba83c9ff4a16a88a7fe5aeffe1d4f8}{hour}};\ }
+\DoxyCodeLine{00047\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{structgps__data__t_af12b5c51d6698789dec052c150c441db}{min}};\ }
+\DoxyCodeLine{00048\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{structgps__data__t_ac903bfa7f60e3beb183876dec25595d2}{sec}};\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structgps__data__t_a98f6318e979419b4d528502f06c6e042}{fix}};\ }
+\DoxyCodeLine{00050\ \}\ \doxymbox{\hyperlink{structgps__data__t}{gps\_data\_t}};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{comment}{//\ FUNCTIONS}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{gps__module_8h_ab37f7040b9efd19fdd3f92b1df77e771}{gps\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{gps__module_8h_aeaba9d874c83b13a6cc8cc3d2c3626e0}{gps\_update}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{gps__module_8h_a3e59e78bf5f458e9d3ee2255abab936f}{gps\_get\_data}}(\doxymbox{\hyperlink{structgps__data__t}{gps\_data\_t}}*\ data);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GPS\_MODULE\_H}}
+
+\end{DoxyCode}

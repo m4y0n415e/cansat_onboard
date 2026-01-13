@@ -1,0 +1,41 @@
+\doxysection{code/\+microsd\+\_\+module.h File Reference}
+\hypertarget{microsd__module_8h}{}\label{microsd__module_8h}\index{code/microsd\_module.h@{code/microsd\_module.h}}
+{\ttfamily \+\#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdio.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdint.\+h$>$}\newline
+{\ttfamily \+\#include "{}pico/\+stdlib.\+h"{}}\newline
+{\ttfamily \+\#include "{}atm\+\_\+sen\+\_\+module.\+h"{}}\newline
+{\ttfamily \+\#include "{}time\+\_\+manager.\+h"{}}\newline
+{\ttfamily \+\#include "{}gps\+\_\+module.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{microsd__module_8h_ab4bbf5729374ada6cfc3fc3ae7635a4c}{sd\+\_\+init}} ()
+\item 
+void \doxymbox{\hyperlink{microsd__module_8h_ac17642027076b91b1b493720c2f16dd5}{save\+\_\+system\+\_\+data}} (\doxymbox{\hyperlink{structsensor__readings__t}{sensor\+\_\+readings\+\_\+t}} \texorpdfstring{$\ast$}{*}sen\+\_\+data, \doxymbox{\hyperlink{structcurrent__time__t}{current\+\_\+time\+\_\+t}} \texorpdfstring{$\ast$}{*}time\+\_\+date)
+\item 
+void \doxymbox{\hyperlink{microsd__module_8h_a3f02e5000c59360a22796e685fd45e33}{save\+\_\+gps\+\_\+log}} (\doxymbox{\hyperlink{structgps__data__t}{gps\+\_\+data\+\_\+t}} \texorpdfstring{$\ast$}{*}gps)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{microsd__module_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{microsd__module_8h_a3f02e5000c59360a22796e685fd45e33}\index{microsd\_module.h@{microsd\_module.h}!save\_gps\_log@{save\_gps\_log}}
+\index{save\_gps\_log@{save\_gps\_log}!microsd\_module.h@{microsd\_module.h}}
+\doxysubsubsection{\texorpdfstring{save\_gps\_log()}{save\_gps\_log()}}
+{\footnotesize\ttfamily \label{microsd__module_8h_a3f02e5000c59360a22796e685fd45e33} 
+void save\+\_\+gps\+\_\+log (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structgps__data__t}{gps\+\_\+data\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{gps}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{microsd__module_8h_ac17642027076b91b1b493720c2f16dd5}\index{microsd\_module.h@{microsd\_module.h}!save\_system\_data@{save\_system\_data}}
+\index{save\_system\_data@{save\_system\_data}!microsd\_module.h@{microsd\_module.h}}
+\doxysubsubsection{\texorpdfstring{save\_system\_data()}{save\_system\_data()}}
+{\footnotesize\ttfamily \label{microsd__module_8h_ac17642027076b91b1b493720c2f16dd5} 
+void save\+\_\+system\+\_\+data (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structsensor__readings__t}{sensor\+\_\+readings\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{sen\+\_\+data}{, }\item[{\doxymbox{\hyperlink{structcurrent__time__t}{current\+\_\+time\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{time\+\_\+date}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{microsd__module_8h_ab4bbf5729374ada6cfc3fc3ae7635a4c}\index{microsd\_module.h@{microsd\_module.h}!sd\_init@{sd\_init}}
+\index{sd\_init@{sd\_init}!microsd\_module.h@{microsd\_module.h}}
+\doxysubsubsection{\texorpdfstring{sd\_init()}{sd\_init()}}
+{\footnotesize\ttfamily \label{microsd__module_8h_ab4bbf5729374ada6cfc3fc3ae7635a4c} 
+bool sd\+\_\+init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+

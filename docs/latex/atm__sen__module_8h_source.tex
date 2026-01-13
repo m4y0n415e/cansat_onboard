@@ -1,0 +1,29 @@
+\doxysection{atm\+\_\+sen\+\_\+module.\+h}
+\hypertarget{atm__sen__module_8h_source}{}\label{atm__sen__module_8h_source}\index{code/atm\_sen\_module.h@{code/atm\_sen\_module.h}}
+\doxymbox{\hyperlink{atm__sen__module_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ATM\_SEN\_MODULE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ATM\_SEN\_MODULE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <pico/stdlib.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{structsensor__readings__t_a39f0229c6ee0bacdb83f260e9ba8ede7}{timestamp\_str}}[20];\ \textcolor{comment}{//\ Time\ since\ boot\ in\ milliseconds}}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{structsensor__readings__t_acaf6d3a994baf23e13f1bb4892856e7a}{pressure\_pa}};}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{structsensor__readings__t_a4192baf2c03956eace8cd219f9f08046}{altitude\_m}};}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structsensor__readings__t_adc16281b6e8d49f6517fe3b9148ee31d}{temperature\_c}};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structsensor__readings__t_a21d687eb4b6624199b9b5494eb9fe76f}{humidity\_pct}};}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structsensor__readings__t_afac2ec96be8c7b4b2a935dbba85a7125}{methane\_ppm}};}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structsensor__readings__t_a336979c64fc894b8584f0c4057c7c0b0}{ammonia\_ppm}};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structsensor__readings__t_a6c5b64c42bb537e7c53e8081a7fb49c2}{oxygen\_pct}};}
+\DoxyCodeLine{00018\ \}\ \doxymbox{\hyperlink{structsensor__readings__t}{sensor\_readings\_t}};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{atm__sen__module_8h_ab0ab9ff6e62f1d4146260a43776ff3de}{init\_all\_sensors}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00021\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{atm__sen__module_8h_ae690ed8278c4695dd8afccad3883c98b}{read\_all}}(\doxymbox{\hyperlink{structsensor__readings__t}{sensor\_readings\_t}}\ *gathered\_data);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

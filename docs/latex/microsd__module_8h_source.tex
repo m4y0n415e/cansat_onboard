@@ -1,0 +1,26 @@
+\doxysection{microsd\+\_\+module.\+h}
+\hypertarget{microsd__module_8h_source}{}\label{microsd__module_8h_source}\index{code/microsd\_module.h@{code/microsd\_module.h}}
+\doxymbox{\hyperlink{microsd__module_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MICROSD\_MODULE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MICROSD\_MODULE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}pico/stdlib.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{atm__sen__module_8h}{atm\_sen\_module.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{time__manager_8h}{time\_manager.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{gps__module_8h}{gps\_module.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{microsd__module_8h_ab4bbf5729374ada6cfc3fc3ae7635a4c}{sd\_init}}();}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{microsd__module_8h_ac17642027076b91b1b493720c2f16dd5}{save\_system\_data}}(\doxymbox{\hyperlink{structsensor__readings__t}{sensor\_readings\_t}}*\ sen\_data,\ \doxymbox{\hyperlink{structcurrent__time__t}{current\_time\_t}}*\ time\_date);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{//extern\ void\ save\_photo(current\_time\_t*\ state,\ uint8\_t*\ image\_buffer,\ uint32\_t\ length);}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{microsd__module_8h_a3f02e5000c59360a22796e685fd45e33}{save\_gps\_log}}(\doxymbox{\hyperlink{structgps__data__t}{gps\_data\_t}}*\ gps);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,135 @@
+\doxysection{code/\+gps\+\_\+module.h File Reference}
+\hypertarget{gps__module_8h}{}\label{gps__module_8h}\index{code/gps\_module.h@{code/gps\_module.h}}
+
+
+GPS module interface.  
+
+
+{\ttfamily \+\#include $<$stdint.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdio.\+h$>$}\newline
+{\ttfamily \+\#include "{}pico/\+stdlib.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structgps__data__t}{gps\+\_\+data\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em These structures keep the parsed GPS position and time information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{gps__module_8h_a5477f5f7b97c4296fb85b0ec54ab4ce0}{GPS\+\_\+\+BAUD\+\_\+\+RATE}}~9600
+\begin{DoxyCompactList}\small\item\em UART Baud rate for the GPS module (Standard is usually 9600). \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{gps__module_8h_a601310e3a0fb510e9a647de131d90efa}{GPS\+\_\+\+UART\+\_\+\+ID}}~uart0
+\begin{DoxyCompactList}\small\item\em The hardware UART instance to use (uart0 or uart1). \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{gps__module_8h_acae14b9c1767cfec367a4b96009c94e5}{GPS\+\_\+\+TX\+\_\+\+PIN}}~8
+\begin{DoxyCompactList}\small\item\em GPIO pin for UART transmission (Pico TX). \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{gps__module_8h_a6f8927970de9eedcbb8f6c14b1d0d6c3}{GPS\+\_\+\+RX\+\_\+\+PIN}}~9
+\begin{DoxyCompactList}\small\item\em GPIO pin for UART reception (Pico RX). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{gps__module_8h_ab37f7040b9efd19fdd3f92b1df77e771}{gps\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the GPS UART connection and GPIO pins. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{gps__module_8h_aeaba9d874c83b13a6cc8cc3d2c3626e0}{gps\+\_\+update}} (void)
+\begin{DoxyCompactList}\small\item\em Polls the UART for newly aquired GPS data and sends it to be parsed. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{gps__module_8h_a3e59e78bf5f458e9d3ee2255abab936f}{gps\+\_\+get\+\_\+data}} (\doxymbox{\hyperlink{structgps__data__t}{gps\+\_\+data\+\_\+t}} \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Retrieves the latest parsed GPS data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+GPS module interface. 
+
+This file handles the UART configuration for the GPS module (Pico), defines the data structure for holding parsed GPS coordinates/\+time, and provides functions to initialize and update the system. 
+
+\label{doc-define-members}
+\Hypertarget{gps__module_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{gps__module_8h_a5477f5f7b97c4296fb85b0ec54ab4ce0}\index{gps\_module.h@{gps\_module.h}!GPS\_BAUD\_RATE@{GPS\_BAUD\_RATE}}
+\index{GPS\_BAUD\_RATE@{GPS\_BAUD\_RATE}!gps\_module.h@{gps\_module.h}}
+\doxysubsubsection{\texorpdfstring{GPS\_BAUD\_RATE}{GPS\_BAUD\_RATE}}
+{\footnotesize\ttfamily \label{gps__module_8h_a5477f5f7b97c4296fb85b0ec54ab4ce0} 
+\+\#define GPS\+\_\+\+BAUD\+\_\+\+RATE~9600}
+
+
+
+UART Baud rate for the GPS module (Standard is usually 9600). 
+
+\Hypertarget{gps__module_8h_a6f8927970de9eedcbb8f6c14b1d0d6c3}\index{gps\_module.h@{gps\_module.h}!GPS\_RX\_PIN@{GPS\_RX\_PIN}}
+\index{GPS\_RX\_PIN@{GPS\_RX\_PIN}!gps\_module.h@{gps\_module.h}}
+\doxysubsubsection{\texorpdfstring{GPS\_RX\_PIN}{GPS\_RX\_PIN}}
+{\footnotesize\ttfamily \label{gps__module_8h_a6f8927970de9eedcbb8f6c14b1d0d6c3} 
+\+\#define GPS\+\_\+\+RX\+\_\+\+PIN~9}
+
+
+
+GPIO pin for UART reception (Pico RX). 
+
+\Hypertarget{gps__module_8h_acae14b9c1767cfec367a4b96009c94e5}\index{gps\_module.h@{gps\_module.h}!GPS\_TX\_PIN@{GPS\_TX\_PIN}}
+\index{GPS\_TX\_PIN@{GPS\_TX\_PIN}!gps\_module.h@{gps\_module.h}}
+\doxysubsubsection{\texorpdfstring{GPS\_TX\_PIN}{GPS\_TX\_PIN}}
+{\footnotesize\ttfamily \label{gps__module_8h_acae14b9c1767cfec367a4b96009c94e5} 
+\+\#define GPS\+\_\+\+TX\+\_\+\+PIN~8}
+
+
+
+GPIO pin for UART transmission (Pico TX). 
+
+\Hypertarget{gps__module_8h_a601310e3a0fb510e9a647de131d90efa}\index{gps\_module.h@{gps\_module.h}!GPS\_UART\_ID@{GPS\_UART\_ID}}
+\index{GPS\_UART\_ID@{GPS\_UART\_ID}!gps\_module.h@{gps\_module.h}}
+\doxysubsubsection{\texorpdfstring{GPS\_UART\_ID}{GPS\_UART\_ID}}
+{\footnotesize\ttfamily \label{gps__module_8h_a601310e3a0fb510e9a647de131d90efa} 
+\+\#define GPS\+\_\+\+UART\+\_\+\+ID~uart0}
+
+
+
+The hardware UART instance to use (uart0 or uart1). 
+
+
+
+\label{doc-func-members}
+\Hypertarget{gps__module_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{gps__module_8h_a3e59e78bf5f458e9d3ee2255abab936f}\index{gps\_module.h@{gps\_module.h}!gps\_get\_data@{gps\_get\_data}}
+\index{gps\_get\_data@{gps\_get\_data}!gps\_module.h@{gps\_module.h}}
+\doxysubsubsection{\texorpdfstring{gps\_get\_data()}{gps\_get\_data()}}
+{\footnotesize\ttfamily \label{gps__module_8h_a3e59e78bf5f458e9d3ee2255abab936f} 
+void gps\+\_\+get\+\_\+data (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structgps__data__t}{gps\+\_\+data\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Retrieves the latest parsed GPS data. 
+
+Copies the most recent valid GPS data into the provided gos\+\_\+data\+\_\+t structure.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{out}}  & {\em data} & Pointer to a \doxylink{structgps__data__t}{gps\+\_\+data\+\_\+t} struct where the data will be copied. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{gps__module_8h_ab37f7040b9efd19fdd3f92b1df77e771}\index{gps\_module.h@{gps\_module.h}!gps\_init@{gps\_init}}
+\index{gps\_init@{gps\_init}!gps\_module.h@{gps\_module.h}}
+\doxysubsubsection{\texorpdfstring{gps\_init()}{gps\_init()}}
+{\footnotesize\ttfamily \label{gps__module_8h_ab37f7040b9efd19fdd3f92b1df77e771} 
+void gps\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Initializes the GPS UART connection and GPIO pins. 
+
+Sets up the specified GPS\+\_\+\+UART\+\_\+\+ID with the baud rate defined in GPS\+\_\+\+BAUD\+\_\+\+RATE and configures the TX/\+\+RX pins. \Hypertarget{gps__module_8h_aeaba9d874c83b13a6cc8cc3d2c3626e0}\index{gps\_module.h@{gps\_module.h}!gps\_update@{gps\_update}}
+\index{gps\_update@{gps\_update}!gps\_module.h@{gps\_module.h}}
+\doxysubsubsection{\texorpdfstring{gps\_update()}{gps\_update()}}
+{\footnotesize\ttfamily \label{gps__module_8h_aeaba9d874c83b13a6cc8cc3d2c3626e0} 
+bool gps\+\_\+update (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Polls the UART for newly aquired GPS data and sends it to be parsed. 
+
+This function should be called frequently (e.\+g., in the main loop). It reads available characters from the UART buffer and calls a function to process NMEA sentences.
+
+\begin{DoxyReturn}{Returns}
+true if a valid packet was fully parsed and data was updated. 
+
+false if no new complete packet is available yet. 
+\end{DoxyReturn}

@@ -1,0 +1,98 @@
+\doxysection{code/\+atm\+\_\+sen\+\_\+module.c File Reference}
+\hypertarget{atm__sen__module_8c}{}\label{atm__sen__module_8c}\index{code/atm\_sen\_module.c@{code/atm\_sen\_module.c}}
+{\ttfamily \+\#include $<$math.\+h$>$}\newline
+{\ttfamily \+\#include "{}hardware/\+i2c.\+h"{}}\newline
+{\ttfamily \+\#include "{}hardware/\+adc.\+h"{}}\newline
+{\ttfamily \+\#include "{}atm\+\_\+sen\+\_\+module.\+h"{}}\newline
+{\ttfamily \+\#include "{}debug\+\_\+mode.\+h"{}}\newline
+{\ttfamily \+\#include "{}libs/\+bmp280/\+bmp280\+\_\+i2c.\+h"{}}\newline
+{\ttfamily \+\#include "{}libs/\+bmp280/\+bmp280\+\_\+i2c\+\_\+hal.\+h"{}}\newline
+{\ttfamily \+\#include "{}dfrobot\+\_\+oxygen.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{atm__sen__module_8c_ad9ecf80e1eac083d16ec47f9d3aeb39f}{I2\+C\+\_\+\+PORT}}~i2c0
+\item 
+\+\#define \doxymbox{\hyperlink{atm__sen__module_8c_ac9fe2be24413b4779034114ed0c5a69e}{SHTC3\+\_\+\+ADDR}}~0x70
+\item 
+\+\#define \doxymbox{\hyperlink{atm__sen__module_8c_a5dfb6a7d75a520f42d21ec9a9f640342}{PIN\+\_\+\+SDA}}~12
+\item 
+\+\#define \doxymbox{\hyperlink{atm__sen__module_8c_ab4874028097ae0777b42cef20ffc913d}{PIN\+\_\+\+SCL}}~13
+\item 
+\+\#define \doxymbox{\hyperlink{atm__sen__module_8c_a1b6d3e699ecc0c81a13f3bf0a70061f4}{O2\+\_\+\+ADDR}}~0x74
+\item 
+\+\#define \doxymbox{\hyperlink{atm__sen__module_8c_a85f066bb23c3d036dc4b1535b55e3846}{PIN\+\_\+\+METHANE}}~26
+\item 
+\+\#define \doxymbox{\hyperlink{atm__sen__module_8c_a69ae1370faaee3ae55cba79860143469}{PIN\+\_\+\+AMMONIA}}~27
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{atm__sen__module_8c_a9712cae043c55fed61bd975378702177}{init\+\_\+all\+\_\+sensors}} ()
+\item 
+void \doxymbox{\hyperlink{atm__sen__module_8c_ae690ed8278c4695dd8afccad3883c98b}{read\+\_\+all}} (\doxymbox{\hyperlink{structsensor__readings__t}{sensor\+\_\+readings\+\_\+t}} \texorpdfstring{$\ast$}{*}gathered\+\_\+data)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{atm__sen__module_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{atm__sen__module_8c_ad9ecf80e1eac083d16ec47f9d3aeb39f}\index{atm\_sen\_module.c@{atm\_sen\_module.c}!I2C\_PORT@{I2C\_PORT}}
+\index{I2C\_PORT@{I2C\_PORT}!atm\_sen\_module.c@{atm\_sen\_module.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_PORT}{I2C\_PORT}}
+{\footnotesize\ttfamily \label{atm__sen__module_8c_ad9ecf80e1eac083d16ec47f9d3aeb39f} 
+\+\#define I2\+C\+\_\+\+PORT~i2c0}
+
+\Hypertarget{atm__sen__module_8c_a1b6d3e699ecc0c81a13f3bf0a70061f4}\index{atm\_sen\_module.c@{atm\_sen\_module.c}!O2\_ADDR@{O2\_ADDR}}
+\index{O2\_ADDR@{O2\_ADDR}!atm\_sen\_module.c@{atm\_sen\_module.c}}
+\doxysubsubsection{\texorpdfstring{O2\_ADDR}{O2\_ADDR}}
+{\footnotesize\ttfamily \label{atm__sen__module_8c_a1b6d3e699ecc0c81a13f3bf0a70061f4} 
+\+\#define O2\+\_\+\+ADDR~0x74}
+
+\Hypertarget{atm__sen__module_8c_a69ae1370faaee3ae55cba79860143469}\index{atm\_sen\_module.c@{atm\_sen\_module.c}!PIN\_AMMONIA@{PIN\_AMMONIA}}
+\index{PIN\_AMMONIA@{PIN\_AMMONIA}!atm\_sen\_module.c@{atm\_sen\_module.c}}
+\doxysubsubsection{\texorpdfstring{PIN\_AMMONIA}{PIN\_AMMONIA}}
+{\footnotesize\ttfamily \label{atm__sen__module_8c_a69ae1370faaee3ae55cba79860143469} 
+\+\#define PIN\+\_\+\+AMMONIA~27}
+
+\Hypertarget{atm__sen__module_8c_a85f066bb23c3d036dc4b1535b55e3846}\index{atm\_sen\_module.c@{atm\_sen\_module.c}!PIN\_METHANE@{PIN\_METHANE}}
+\index{PIN\_METHANE@{PIN\_METHANE}!atm\_sen\_module.c@{atm\_sen\_module.c}}
+\doxysubsubsection{\texorpdfstring{PIN\_METHANE}{PIN\_METHANE}}
+{\footnotesize\ttfamily \label{atm__sen__module_8c_a85f066bb23c3d036dc4b1535b55e3846} 
+\+\#define PIN\+\_\+\+METHANE~26}
+
+\Hypertarget{atm__sen__module_8c_ab4874028097ae0777b42cef20ffc913d}\index{atm\_sen\_module.c@{atm\_sen\_module.c}!PIN\_SCL@{PIN\_SCL}}
+\index{PIN\_SCL@{PIN\_SCL}!atm\_sen\_module.c@{atm\_sen\_module.c}}
+\doxysubsubsection{\texorpdfstring{PIN\_SCL}{PIN\_SCL}}
+{\footnotesize\ttfamily \label{atm__sen__module_8c_ab4874028097ae0777b42cef20ffc913d} 
+\+\#define PIN\+\_\+\+SCL~13}
+
+\Hypertarget{atm__sen__module_8c_a5dfb6a7d75a520f42d21ec9a9f640342}\index{atm\_sen\_module.c@{atm\_sen\_module.c}!PIN\_SDA@{PIN\_SDA}}
+\index{PIN\_SDA@{PIN\_SDA}!atm\_sen\_module.c@{atm\_sen\_module.c}}
+\doxysubsubsection{\texorpdfstring{PIN\_SDA}{PIN\_SDA}}
+{\footnotesize\ttfamily \label{atm__sen__module_8c_a5dfb6a7d75a520f42d21ec9a9f640342} 
+\+\#define PIN\+\_\+\+SDA~12}
+
+\Hypertarget{atm__sen__module_8c_ac9fe2be24413b4779034114ed0c5a69e}\index{atm\_sen\_module.c@{atm\_sen\_module.c}!SHTC3\_ADDR@{SHTC3\_ADDR}}
+\index{SHTC3\_ADDR@{SHTC3\_ADDR}!atm\_sen\_module.c@{atm\_sen\_module.c}}
+\doxysubsubsection{\texorpdfstring{SHTC3\_ADDR}{SHTC3\_ADDR}}
+{\footnotesize\ttfamily \label{atm__sen__module_8c_ac9fe2be24413b4779034114ed0c5a69e} 
+\+\#define SHTC3\+\_\+\+ADDR~0x70}
+
+
+
+\label{doc-func-members}
+\Hypertarget{atm__sen__module_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{atm__sen__module_8c_a9712cae043c55fed61bd975378702177}\index{atm\_sen\_module.c@{atm\_sen\_module.c}!init\_all\_sensors@{init\_all\_sensors}}
+\index{init\_all\_sensors@{init\_all\_sensors}!atm\_sen\_module.c@{atm\_sen\_module.c}}
+\doxysubsubsection{\texorpdfstring{init\_all\_sensors()}{init\_all\_sensors()}}
+{\footnotesize\ttfamily \label{atm__sen__module_8c_a9712cae043c55fed61bd975378702177} 
+void init\+\_\+all\+\_\+sensors (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{atm__sen__module_8c_ae690ed8278c4695dd8afccad3883c98b}\index{atm\_sen\_module.c@{atm\_sen\_module.c}!read\_all@{read\_all}}
+\index{read\_all@{read\_all}!atm\_sen\_module.c@{atm\_sen\_module.c}}
+\doxysubsubsection{\texorpdfstring{read\_all()}{read\_all()}}
+{\footnotesize\ttfamily \label{atm__sen__module_8c_ae690ed8278c4695dd8afccad3883c98b} 
+void read\+\_\+all (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structsensor__readings__t}{sensor\+\_\+readings\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{gathered\+\_\+data}{}\end{DoxyParamCaption})}
+

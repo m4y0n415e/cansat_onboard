@@ -1,0 +1,50 @@
+\doxysection{code/\+time\+\_\+manager.h File Reference}
+\hypertarget{time__manager_8h}{}\label{time__manager_8h}\index{code/time\_manager.h@{code/time\_manager.h}}
+{\ttfamily \+\#include $<$stdint.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \+\#include $<$time.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structcurrent__time__t}{current\+\_\+time\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{time__manager_8h_a3a22b1d94e247980fd1a29ae8eb19bf6}{time\+\_\+manager\+\_\+init}} (void)
+\item 
+bool \doxymbox{\hyperlink{time__manager_8h_a7f053b33e4a11799b757855ab7a4d6ea}{time\+\_\+manager\+\_\+update}} (void)
+\item 
+void \doxymbox{\hyperlink{time__manager_8h_ac3609b1d90b910e77e677a873c7dcb93}{time\+\_\+manager\+\_\+sync}} (uint8\+\_\+t hour, uint8\+\_\+t min, uint8\+\_\+t sec)
+\item 
+\doxymbox{\hyperlink{structcurrent__time__t}{current\+\_\+time\+\_\+t}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{time__manager_8h_ade7b230e754a1c68c280687071b58751}{time\+\_\+manager\+\_\+get}} (void)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{time__manager_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{time__manager_8h_ade7b230e754a1c68c280687071b58751}\index{time\_manager.h@{time\_manager.h}!time\_manager\_get@{time\_manager\_get}}
+\index{time\_manager\_get@{time\_manager\_get}!time\_manager.h@{time\_manager.h}}
+\doxysubsubsection{\texorpdfstring{time\_manager\_get()}{time\_manager\_get()}}
+{\footnotesize\ttfamily \label{time__manager_8h_ade7b230e754a1c68c280687071b58751} 
+\doxymbox{\hyperlink{structcurrent__time__t}{current\+\_\+time\+\_\+t}} \texorpdfstring{$\ast$}{*} time\+\_\+manager\+\_\+get (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{time__manager_8h_a3a22b1d94e247980fd1a29ae8eb19bf6}\index{time\_manager.h@{time\_manager.h}!time\_manager\_init@{time\_manager\_init}}
+\index{time\_manager\_init@{time\_manager\_init}!time\_manager.h@{time\_manager.h}}
+\doxysubsubsection{\texorpdfstring{time\_manager\_init()}{time\_manager\_init()}}
+{\footnotesize\ttfamily \label{time__manager_8h_a3a22b1d94e247980fd1a29ae8eb19bf6} 
+void time\+\_\+manager\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{time__manager_8h_ac3609b1d90b910e77e677a873c7dcb93}\index{time\_manager.h@{time\_manager.h}!time\_manager\_sync@{time\_manager\_sync}}
+\index{time\_manager\_sync@{time\_manager\_sync}!time\_manager.h@{time\_manager.h}}
+\doxysubsubsection{\texorpdfstring{time\_manager\_sync()}{time\_manager\_sync()}}
+{\footnotesize\ttfamily \label{time__manager_8h_ac3609b1d90b910e77e677a873c7dcb93} 
+void time\+\_\+manager\+\_\+sync (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{hour}{, }\item[{uint8\+\_\+t}]{min}{, }\item[{uint8\+\_\+t}]{sec}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{time__manager_8h_a7f053b33e4a11799b757855ab7a4d6ea}\index{time\_manager.h@{time\_manager.h}!time\_manager\_update@{time\_manager\_update}}
+\index{time\_manager\_update@{time\_manager\_update}!time\_manager.h@{time\_manager.h}}
+\doxysubsubsection{\texorpdfstring{time\_manager\_update()}{time\_manager\_update()}}
+{\footnotesize\ttfamily \label{time__manager_8h_a7f053b33e4a11799b757855ab7a4d6ea} 
+bool time\+\_\+manager\+\_\+update (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+

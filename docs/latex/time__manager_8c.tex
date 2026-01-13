@@ -1,0 +1,61 @@
+\doxysection{code/\+time\+\_\+manager.c File Reference}
+\hypertarget{time__manager_8c}{}\label{time__manager_8c}\index{code/time\_manager.c@{code/time\_manager.c}}
+{\ttfamily \+\#include "{}time\+\_\+manager.\+h"{}}\newline
+{\ttfamily \+\#include "{}pico/\+stdlib.\+h"{}}\newline
+{\ttfamily \+\#include $<$stdio.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{time__manager_8c_ad002a29d99eafe389580285df1b17b62}{TIMEZONE\+\_\+\+OFFSET}}~1
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{time__manager_8c_a3a22b1d94e247980fd1a29ae8eb19bf6}{time\+\_\+manager\+\_\+init}} (void)
+\item 
+bool \doxymbox{\hyperlink{time__manager_8c_a7f053b33e4a11799b757855ab7a4d6ea}{time\+\_\+manager\+\_\+update}} (void)
+\item 
+\doxymbox{\hyperlink{structcurrent__time__t}{current\+\_\+time\+\_\+t}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{time__manager_8c_ade7b230e754a1c68c280687071b58751}{time\+\_\+manager\+\_\+get}} (void)
+\item 
+void \doxymbox{\hyperlink{time__manager_8c_ac3609b1d90b910e77e677a873c7dcb93}{time\+\_\+manager\+\_\+sync}} (uint8\+\_\+t hour, uint8\+\_\+t min, uint8\+\_\+t sec)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{time__manager_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{time__manager_8c_ad002a29d99eafe389580285df1b17b62}\index{time\_manager.c@{time\_manager.c}!TIMEZONE\_OFFSET@{TIMEZONE\_OFFSET}}
+\index{TIMEZONE\_OFFSET@{TIMEZONE\_OFFSET}!time\_manager.c@{time\_manager.c}}
+\doxysubsubsection{\texorpdfstring{TIMEZONE\_OFFSET}{TIMEZONE\_OFFSET}}
+{\footnotesize\ttfamily \label{time__manager_8c_ad002a29d99eafe389580285df1b17b62} 
+\+\#define TIMEZONE\+\_\+\+OFFSET~1}
+
+
+
+\label{doc-func-members}
+\Hypertarget{time__manager_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{time__manager_8c_ade7b230e754a1c68c280687071b58751}\index{time\_manager.c@{time\_manager.c}!time\_manager\_get@{time\_manager\_get}}
+\index{time\_manager\_get@{time\_manager\_get}!time\_manager.c@{time\_manager.c}}
+\doxysubsubsection{\texorpdfstring{time\_manager\_get()}{time\_manager\_get()}}
+{\footnotesize\ttfamily \label{time__manager_8c_ade7b230e754a1c68c280687071b58751} 
+\doxymbox{\hyperlink{structcurrent__time__t}{current\+\_\+time\+\_\+t}} \texorpdfstring{$\ast$}{*} time\+\_\+manager\+\_\+get (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{time__manager_8c_a3a22b1d94e247980fd1a29ae8eb19bf6}\index{time\_manager.c@{time\_manager.c}!time\_manager\_init@{time\_manager\_init}}
+\index{time\_manager\_init@{time\_manager\_init}!time\_manager.c@{time\_manager.c}}
+\doxysubsubsection{\texorpdfstring{time\_manager\_init()}{time\_manager\_init()}}
+{\footnotesize\ttfamily \label{time__manager_8c_a3a22b1d94e247980fd1a29ae8eb19bf6} 
+void time\+\_\+manager\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{time__manager_8c_ac3609b1d90b910e77e677a873c7dcb93}\index{time\_manager.c@{time\_manager.c}!time\_manager\_sync@{time\_manager\_sync}}
+\index{time\_manager\_sync@{time\_manager\_sync}!time\_manager.c@{time\_manager.c}}
+\doxysubsubsection{\texorpdfstring{time\_manager\_sync()}{time\_manager\_sync()}}
+{\footnotesize\ttfamily \label{time__manager_8c_ac3609b1d90b910e77e677a873c7dcb93} 
+void time\+\_\+manager\+\_\+sync (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{hour}{, }\item[{uint8\+\_\+t}]{min}{, }\item[{uint8\+\_\+t}]{sec}{}\end{DoxyParamCaption})}
+
+\Hypertarget{time__manager_8c_a7f053b33e4a11799b757855ab7a4d6ea}\index{time\_manager.c@{time\_manager.c}!time\_manager\_update@{time\_manager\_update}}
+\index{time\_manager\_update@{time\_manager\_update}!time\_manager.c@{time\_manager.c}}
+\doxysubsubsection{\texorpdfstring{time\_manager\_update()}{time\_manager\_update()}}
+{\footnotesize\ttfamily \label{time__manager_8c_a7f053b33e4a11799b757855ab7a4d6ea} 
+bool time\+\_\+manager\+\_\+update (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+

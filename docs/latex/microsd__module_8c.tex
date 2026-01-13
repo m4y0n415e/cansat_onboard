@@ -1,0 +1,59 @@
+\doxysection{code/\+microsd\+\_\+module.c File Reference}
+\hypertarget{microsd__module_8c}{}\label{microsd__module_8c}\index{code/microsd\_module.c@{code/microsd\_module.c}}
+{\ttfamily \+\#include $<$string.\+h$>$}\newline
+{\ttfamily \+\#include "{}microsd\+\_\+module.\+h"{}}\newline
+{\ttfamily \+\#include "{}debug\+\_\+mode.\+h"{}}\newline
+{\ttfamily \+\#include "{}ff.\+h"{}}\newline
+{\ttfamily \+\#include "{}f\+\_\+util.\+h"{}}\newline
+{\ttfamily \+\#include "{}diskio.\+h"{}}\newline
+{\ttfamily \+\#include "{}hw\+\_\+config.\+h"{}}\newline
+{\ttfamily \+\#include "{}hardware/\+spi.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{microsd__module_8c_ab4bbf5729374ada6cfc3fc3ae7635a4c}{sd\+\_\+init}} ()
+\item 
+void \doxymbox{\hyperlink{microsd__module_8c_a11853d053c03ae484ad6832fcda30b89}{save\+\_\+system\+\_\+data}} (\doxymbox{\hyperlink{structsensor__readings__t}{sensor\+\_\+readings\+\_\+t}} \texorpdfstring{$\ast$}{*}data, \doxymbox{\hyperlink{structcurrent__time__t}{current\+\_\+time\+\_\+t}} \texorpdfstring{$\ast$}{*}time)
+\item 
+void \doxymbox{\hyperlink{microsd__module_8c_a3f02e5000c59360a22796e685fd45e33}{save\+\_\+gps\+\_\+log}} (\doxymbox{\hyperlink{structgps__data__t}{gps\+\_\+data\+\_\+t}} \texorpdfstring{$\ast$}{*}gps)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{microsd__module_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{microsd__module_8c_a3f02e5000c59360a22796e685fd45e33}\index{microsd\_module.c@{microsd\_module.c}!save\_gps\_log@{save\_gps\_log}}
+\index{save\_gps\_log@{save\_gps\_log}!microsd\_module.c@{microsd\_module.c}}
+\doxysubsubsection{\texorpdfstring{save\_gps\_log()}{save\_gps\_log()}}
+{\footnotesize\ttfamily \label{microsd__module_8c_a3f02e5000c59360a22796e685fd45e33} 
+void save\+\_\+gps\+\_\+log (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structgps__data__t}{gps\+\_\+data\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{gps}{}\end{DoxyParamCaption})}
+
+\Hypertarget{microsd__module_8c_a11853d053c03ae484ad6832fcda30b89}\index{microsd\_module.c@{microsd\_module.c}!save\_system\_data@{save\_system\_data}}
+\index{save\_system\_data@{save\_system\_data}!microsd\_module.c@{microsd\_module.c}}
+\doxysubsubsection{\texorpdfstring{save\_system\_data()}{save\_system\_data()}}
+{\footnotesize\ttfamily \label{microsd__module_8c_a11853d053c03ae484ad6832fcda30b89} 
+void save\+\_\+system\+\_\+data (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structsensor__readings__t}{sensor\+\_\+readings\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{\doxymbox{\hyperlink{structcurrent__time__t}{current\+\_\+time\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{time}{}\end{DoxyParamCaption})}
+
+\Hypertarget{microsd__module_8c_ab4bbf5729374ada6cfc3fc3ae7635a4c}\index{microsd\_module.c@{microsd\_module.c}!sd\_init@{sd\_init}}
+\index{sd\_init@{sd\_init}!microsd\_module.c@{microsd\_module.c}}
+\doxysubsubsection{\texorpdfstring{sd\_init()}{sd\_init()}}
+{\footnotesize\ttfamily \label{microsd__module_8c_ab4bbf5729374ada6cfc3fc3ae7635a4c} 
+bool sd\+\_\+init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{microsd__module_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{microsd__module_8c_ae5bcde72e0e0b29ec86d00ba3e5cd51f}\index{microsd\_module.c@{microsd\_module.c}!fs@{fs}}
+\index{fs@{fs}!microsd\_module.c@{microsd\_module.c}}
+\doxysubsubsection{\texorpdfstring{fs}{fs}}
+{\footnotesize\ttfamily \label{microsd__module_8c_ae5bcde72e0e0b29ec86d00ba3e5cd51f} 
+FATFS fs}
+
+\Hypertarget{microsd__module_8c_af37d8a9de667e1f1b4b8cfda020f33a5}\index{microsd\_module.c@{microsd\_module.c}!is\_mounted@{is\_mounted}}
+\index{is\_mounted@{is\_mounted}!microsd\_module.c@{microsd\_module.c}}
+\doxysubsubsection{\texorpdfstring{is\_mounted}{is\_mounted}}
+{\footnotesize\ttfamily \label{microsd__module_8c_af37d8a9de667e1f1b4b8cfda020f33a5} 
+bool is\+\_\+mounted}
+
