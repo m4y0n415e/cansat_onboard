@@ -1,3 +1,8 @@
+/** @file debug_mode.h
+ * @brief 
+ * 
+ */
+
 #ifndef DEBUG_MODE_H
 #define DEBUG_MODE_H
 

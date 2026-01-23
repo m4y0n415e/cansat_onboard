@@ -1,3 +1,8 @@
+/** @file time_manager.h
+ * @brief A module dedicated to 
+ * 
+ */
+
 #ifndef TIME_MANAGER_H
 #define TIME_MANAGER_H
 

@@ -80,7 +80,7 @@ void init_all_sensors()
     oxygen_init();
 
     if (oxygen_init() == O2_OK) {
-        LOG("[O2] Initialization SUCCESS.\n"); // Or 0x73
+        LOG("[O2] Initialization SUCCESS.\n");
     } else {
         LOG("[O2] ERROR: Initialization FAILED.\n");
     }
@@ -97,8 +97,8 @@ static void bmp280_read(double *pressure, double *altitude)
     }
     else
     {
-        *pressure = -1.0f;
-        *altitude = -1.0f;
+        *pressure = -1.0f; // error flag
+        *altitude = -1.0f; // error flag
         LOG("[BMP280] ERROR: Read failed\n");
     }
 }
@@ -106,7 +106,7 @@ static void bmp280_read(double *pressure, double *altitude)
 static void shtc3_read(float *temp, float *hum)
 {
     uint8_t cmd_wake[2]  = {0x35, 0x17};
-    uint8_t cmd_meas[2]  = {0x78, 0x66}; // Normal Mode, Clock Stretching Disabled
+    uint8_t cmd_meas[2]  = {0x78, 0x66};
     uint8_t cmd_sleep[2] = {0xB0, 0x98};
     uint8_t buffer[6];
 
@@ -114,7 +114,7 @@ static void shtc3_read(float *temp, float *hum)
     sleep_us(250); // Small delay for wakeup
 
     i2c_write_blocking(I2C_PORT, SHTC3_ADDR, cmd_meas, 2, false);
-    sleep_ms(20);  // Wait for measurement to complete
+    sleep_ms(20);  // Waiting for measurement to complete
 
     // Data - 6 bytes: Temp MSB, Temp LSB, CRC, Hum MSB, Hum LSB, CRC
     int ret = i2c_read_blocking(I2C_PORT, SHTC3_ADDR, buffer, 6, false);
@@ -128,8 +128,9 @@ static void shtc3_read(float *temp, float *hum)
         *hum = 0.0f;
         return;
     }
-    // from sensor documentation: 1. combining bytes into integers
-    // 2. shifting the MSB 8 bits to the left and add the LSB
+
+    // From documentation: 1. Combining bytes into integers
+    // 2. Shifting the MSB 8 bits to the left and add the LSB
     uint16_t raw_temp = (buffer[0] << 8) | buffer[1];
     uint16_t raw_hum  = (buffer[3] << 8) | buffer[4];
 
@@ -143,7 +144,7 @@ static float mems_sensor_read(uint gpio_pin, float sensitivity_factor)
 
     uint16_t raw = adc_read();
 
-    if (raw < 10) return -1.0f; // error flag
+    if (raw < 10) return -1.0f; // Error flag
 
     float voltage = (float)raw * 3.3f / 4095;
 

@@ -2,11 +2,10 @@
  *  @brief Micro SD Card reader interface.
  * 
  * This file handles the SD card reader SPI configuration for Pico using the 
- * no-OS-FatFS-SD-SPI-RPi-Pico library, implements a function for saving data 
+ * ... library, implements a function for saving data 
  * collected from other sensors, and saving GPS coordinates processed by the GPS module.
  * 
- * @see https://github.com/carlk3/no-OS-FatFS-SD-SPI-RPi-Pico for the SD driver documentation.
- * 
+ * @see ... for the SD driver documentation.
  */
 
 #ifndef MICROSD_MODULE_H
@@ -36,12 +35,12 @@ extern bool sd_init();
  * It uses the functions available in the beforementioned library to save formatted strings with
  * values read from sensors kept in a sensor_readings_t file onto the microSD.
  * 
- * @param sen_data Pointer to a sensor_readings_t data struct which stores the data to
+ * @param[in] data Pointer to a sensor_readings_t data struct which stores the data to
  * to be saved on the microSD card.\
- * @param time_data Pointer to a time-keeping structure that plays a role in time management
+ * @param[in] time Pointer to a time-keeping structure that plays a role in time management
  * for the timestamps in the data_log.txt file.
  */
-extern void save_system_data(sensor_readings_t *sen_data, current_time_t *time_date);
+extern void save_system_data(sensor_readings_t *data, current_time_t *time);
 
 //extern void save_photo(current_time_t* state, uint8_t* image_buffer, uint32_t length);
 
@@ -50,7 +49,7 @@ extern void save_system_data(sensor_readings_t *sen_data, current_time_t *time_d
  * It uses the functions available in the beforementioned library to save formatted strings with
  * values read from the GPS kept in a gps_data_t file onto the microSD.
  * 
- * @param gps_data_t Pointer to a structure keeping data read from GPS and properly parsed.
+ * @param[in] gps_data_t Pointer to a structure keeping data read from GPS and properly parsed.
  */
 extern void save_gps_log(gps_data_t *gps);
 
