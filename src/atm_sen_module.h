@@ -4,7 +4,7 @@
  * This file handles the configuration of all atmospheric sensors,
  * through I2C, SPI and UART. It provides functions to initialize
  * and conduct readings from all the sensors, saving them to a 
- * dedicated structure.
+ * dedicated 'sensor_readings_t' structure.
  */
 
 #ifndef ATM_SEN_MODULE_H
@@ -45,7 +45,7 @@ extern void init_all_sensors(void);
  * Within the function, for every sensor a dedicated _read function is called.
  * The data read is then immediately saved in a dedicated structure.
  * 
- * @param[out] gathered_data Pointer to the an object of a sensor_reading_t structure,
+ * @param[out] gathered_data Pointer to the an object of a 'sensor_readings_t' structure,
  *  to which data read from sensors is immediatly saved to.
  */
 extern void read_all(sensor_readings_t *gathered_data);

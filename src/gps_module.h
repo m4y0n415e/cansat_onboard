@@ -79,10 +79,10 @@ extern bool gps_update(void);
 
 /**
  * @brief Retrieves the latest parsed GPS data.
+ * Copies the most recent valid GPS data into the provided 'gps_data_t' structure.
  *
- * Copies the most recent valid GPS data into the provided gos_data_t structure.
- *
- * @param[out] data Pointer to a gps_data_t struct where the data will be copied.
+ * @param[out] data Pointer to a 'gps_data_t' structure where the data will be copied.
  */
 extern void gps_get_data(gps_data_t *data);
+
 #endif // GPS_MODULE_H
