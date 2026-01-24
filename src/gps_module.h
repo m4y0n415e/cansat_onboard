@@ -46,6 +46,9 @@ typedef struct
     uint8_t hour; /// < UTC Hour
     uint8_t min; /// < UTC Minute
     uint8_t sec; /// < UTC Second
+    uint16_t year;
+    uint8_t month;
+    uint8_t day;
     bool fix; /// < True if a valid GPS fix is currently available.
 } gps_data_t;
 
@@ -56,6 +59,8 @@ typedef struct
  *
  * Sets up the specified GPS_UART_ID with the baud rate defined in
  * GPS_BAUD_RATE and configures the TX/RX pins.
+ * 
+ * @note This must be called once at system startup before the main loop.
  */
 
 extern void gps_init(void);

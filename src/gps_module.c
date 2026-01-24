@@ -56,6 +56,10 @@ static void read_and_process(char *line)
                 last_data.hour = frame.time.hours;
                 last_data.min = frame.time.minutes;
                 last_data.sec = frame.time.seconds;
+
+                last_data.day = frame.date.day;
+                last_data.month = frame.date.month;
+                last_data.year = frame.date.year + 2000;
             }
             else last_data.fix = false;
         }

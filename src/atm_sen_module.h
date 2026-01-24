@@ -36,6 +36,7 @@ typedef struct
  * (depending on which is necessary). Within the function, for every sensor that
  * needs initialization a dedicated function is called.
  * This lays the grounds for starting continous readings.
+ * @note This must be called once at system startup before the main loop.
  */
 
 extern void init_all_sensors(void);

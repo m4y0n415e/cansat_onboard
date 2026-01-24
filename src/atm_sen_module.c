@@ -3,8 +3,8 @@
 #include "hardware/adc.h"
 #include "atm_sen_module.h"
 #include "debug_mode.h"
-#include "libs/bmp280/bmp280_i2c.h"
-#include "libs/bmp280/bmp280_i2c_hal.h"
+#include "lib/bmp280/bmp280_i2c.h"
+#include "lib/bmp280/bmp280_i2c_hal.h"
 #include "dfrobot_oxygen.h"
 
 #define I2C_PORT i2c0

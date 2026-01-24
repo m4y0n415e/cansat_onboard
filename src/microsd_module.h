@@ -42,8 +42,6 @@ extern bool sd_init();
  */
 extern void save_system_data(sensor_readings_t *data, current_time_t *time);
 
-//extern void save_photo(current_time_t* state, uint8_t* image_buffer, uint32_t length);
-
 /** @brief Saves all GPS data onto the microSD card in a gps_log.csv file.
  * 
  * It uses the functions available in the beforementioned library to save formatted strings with
