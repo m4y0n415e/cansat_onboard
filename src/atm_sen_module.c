@@ -14,7 +14,7 @@
 #define O2_ADDR  0x74
 
 #define PIN_METHANE 26
-#define PIN_AMMONIA 27
+#define PIN_AMMONIA 28
 
 static float startup_pressure_pa = 0.0f;
 
@@ -97,9 +97,8 @@ static void bmp280_read(double *pressure, double *altitude)
     }
     else
     {
-        *pressure = -1.0f; // error flag
-        *altitude = -1.0f; // error flag
-        LOG("[BMP280] ERROR: Read failed\n");
+        *pressure = -1.0f; // Error flag
+        *altitude = -1.0f; // Error flag
     }
 }
 
@@ -130,7 +129,7 @@ static void shtc3_read(float *temp, float *hum)
     }
 
     // From documentation: 1. Combining bytes into integers
-    // 2. Shifting the MSB 8 bits to the left and add the LSB
+    // 2. Shifting the MSB 8 bits to the left and adding the LSB
     uint16_t raw_temp = (buffer[0] << 8) | buffer[1];
     uint16_t raw_hum  = (buffer[3] << 8) | buffer[4];
 
@@ -164,11 +163,5 @@ void read_all(sensor_readings_t* gathered_data)
     
     bmp280_read(&gathered_data->pressure_pa,&gathered_data->altitude_m);
     
-    float o2_val = 0.0f;
-    if (oxygen_read(&o2_val) == O2_OK) gathered_data->oxygen_pct = o2_val;
-    else 
-    { 
-        gathered_data->oxygen_pct = -1.0f; // Error Flag
-        LOG("[O2] ERROR: Read failed.\n");
-    }
+    oxygen_read(&gathered_data->oxygen_pct);
 }

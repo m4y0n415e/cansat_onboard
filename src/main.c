@@ -67,6 +67,7 @@ int main(void)
 
             LOG("[Main] Logging data...\n");
             save_system_data(&current_sensor_data, time_manager_get());
+            save_gps_log(&my_gps);
 
             bool valid_fix = my_gps.fix && (my_gps.latitude != 0.0f);
 
