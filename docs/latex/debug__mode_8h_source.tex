@@ -1,20 +1,22 @@
 \doxysection{debug\+\_\+mode.\+h}
-\hypertarget{debug__mode_8h_source}{}\label{debug__mode_8h_source}\index{code/debug\_mode.h@{code/debug\_mode.h}}
+\hypertarget{debug__mode_8h_source}{}\label{debug__mode_8h_source}\index{src/debug\_mode.h@{src/debug\_mode.h}}
 \doxymbox{\hyperlink{debug__mode_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DEBUG\_MODE\_H}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DEBUG\_MODE\_H}}
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
-\DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ DEBUG\_MODE}}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifdef\ DEBUG\_MODE}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\ \ \ \ \#define\ LOG(...)\ printf(\_\_VA\_ARGS\_\_)}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\ \ \ \ \#define\ LOG(...)\ ((void)0)}}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ DEBUG\_MODE\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ DEBUG\_MODE\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ DEBUG\_MODE}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifdef\ DEBUG\_MODE}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\ \ \ \ \#define\ LOG(...)\ printf(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\ \ \ \ \#define\ LOG(...)\ ((void)0)}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DEBUG\_MODE\_H}}
 
 \end{DoxyCode}

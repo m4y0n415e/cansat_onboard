@@ -1,5 +1,10 @@
-\doxysection{code/\+atm\+\_\+sen\+\_\+module.h File Reference}
-\hypertarget{atm__sen__module_8h}{}\label{atm__sen__module_8h}\index{code/atm\_sen\_module.h@{code/atm\_sen\_module.h}}
+\doxysection{src/\+atm\+\_\+sen\+\_\+module.h File Reference}
+\hypertarget{atm__sen__module_8h}{}\label{atm__sen__module_8h}\index{src/atm\_sen\_module.h@{src/atm\_sen\_module.h}}
+
+
+Atmospheric sensors module interface.  
+
+
 {\ttfamily \+\#include $<$stdio.\+h$>$}\newline
 {\ttfamily \+\#include $<$pico/\+stdlib.\+h$>$}\newline
 {\ttfamily \+\#include $<$stdint.\+h$>$}\newline
@@ -7,15 +12,20 @@
 \begin{DoxyCompactItemize}
 \item 
 struct \doxymbox{\hyperlink{structsensor__readings__t}{sensor\+\_\+readings\+\_\+t}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Structure for keeping all data read from the atmospheric sensors. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \doxymbox{\hyperlink{atm__sen__module_8h_ab0ab9ff6e62f1d4146260a43776ff3de}{init\+\_\+all\+\_\+sensors}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes all sensors with their I2C, SPI or UART connection (depending on which is necessary). \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{atm__sen__module_8h_ae690ed8278c4695dd8afccad3883c98b}{read\+\_\+all}} (\doxymbox{\hyperlink{structsensor__readings__t}{sensor\+\_\+readings\+\_\+t}} \texorpdfstring{$\ast$}{*}gathered\+\_\+data)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Begins readings from all the atmospheric sensors. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Atmospheric sensors module interface. 
+
+This file handles the configuration of all atmospheric sensors, through I2C, SPI and UART. It provides functions to initialize and conduct readings from all the sensors, saving them to a dedicated \textquotesingle{}\doxylink{structsensor__readings__t}{sensor\+\_\+readings\+\_\+t}\textquotesingle{} structure. 
 
 \label{doc-func-members}
 \Hypertarget{atm__sen__module_8h_doc-func-members}
@@ -26,9 +36,25 @@ void \doxymbox{\hyperlink{atm__sen__module_8h_ae690ed8278c4695dd8afccad3883c98b}
 {\footnotesize\ttfamily \label{atm__sen__module_8h_ab0ab9ff6e62f1d4146260a43776ff3de} 
 void init\+\_\+all\+\_\+sensors (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
 
+
+
+Initializes all sensors with their I2C, SPI or UART connection (depending on which is necessary). 
+
+Within the function, for every sensor that needs initialization a dedicated function is called. This lays the grounds for starting continous readings. \begin{DoxyNote}{Note}
+This must be called once at system startup before the main loop. 
+\end{DoxyNote}
 \Hypertarget{atm__sen__module_8h_ae690ed8278c4695dd8afccad3883c98b}\index{atm\_sen\_module.h@{atm\_sen\_module.h}!read\_all@{read\_all}}
 \index{read\_all@{read\_all}!atm\_sen\_module.h@{atm\_sen\_module.h}}
 \doxysubsubsection{\texorpdfstring{read\_all()}{read\_all()}}
 {\footnotesize\ttfamily \label{atm__sen__module_8h_ae690ed8278c4695dd8afccad3883c98b} 
 void read\+\_\+all (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structsensor__readings__t}{sensor\+\_\+readings\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{gathered\+\_\+data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
 
+
+
+Begins readings from all the atmospheric sensors. 
+
+Within the function, for every sensor a dedicated \+\_\+read function is called. The data read is then immediately saved in a dedicated structure. 
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{out}}  & {\em gathered\+\_\+data} & Pointer to the an object of a \textquotesingle{}\doxylink{structsensor__readings__t}{sensor\+\_\+readings\+\_\+t}\textquotesingle{} structure, to which data read from sensors is immediatly saved to. \\
+\hline
+\end{DoxyParams}

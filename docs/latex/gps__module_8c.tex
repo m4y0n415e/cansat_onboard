@@ -1,5 +1,10 @@
-\doxysection{code/\+gps\+\_\+module.c File Reference}
-\hypertarget{gps__module_8c}{}\label{gps__module_8c}\index{code/gps\_module.c@{code/gps\_module.c}}
+\doxysection{src/\+gps\+\_\+module.c File Reference}
+\hypertarget{gps__module_8c}{}\label{gps__module_8c}\index{src/gps\_module.c@{src/gps\_module.c}}
+
+
+Implementation of GPS NMEA parsing and UART handling.  
+
+
 {\ttfamily \+\#include $<$string.\+h$>$}\newline
 {\ttfamily \+\#include "{}gps\+\_\+module.\+h"{}}\newline
 {\ttfamily \+\#include "{}time\+\_\+manager.\+h"{}}\newline
@@ -20,6 +25,14 @@ bool \doxymbox{\hyperlink{gps__module_8c_aeaba9d874c83b13a6cc8cc3d2c3626e0}{gps\
 \begin{DoxyCompactList}\small\item\em Polls the UART for newly aquired GPS data and sends it to be parsed. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{gps__module_8c_a3e59e78bf5f458e9d3ee2255abab936f}{gps\+\_\+get\+\_\+data}} (\doxymbox{\hyperlink{structgps__data__t}{gps\+\_\+data\+\_\+t}} \texorpdfstring{$\ast$}{*}data)
 \begin{DoxyCompactList}\small\item\em Retrieves the latest parsed GPS data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of GPS NMEA parsing and UART handling. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{gps__module_8h}{gps\+\_\+module.\+h} for the public API and data structures. 
+\end{DoxySeeAlso}
 
 
 \label{doc-define-members}
@@ -46,11 +59,9 @@ void gps\+\_\+get\+\_\+data (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink
 
 Retrieves the latest parsed GPS data. 
 
-Copies the most recent valid GPS data into the provided gos\+\_\+data\+\_\+t structure.
-
-
+Copies the most recent valid GPS data into the provided \textquotesingle{}\doxylink{structgps__data__t}{gps\+\_\+data\+\_\+t}\textquotesingle{} structure. 
 \begin{DoxyParams}[1]{Parameters}
-\doxymbox{\texttt{out}}  & {\em data} & Pointer to a \doxylink{structgps__data__t}{gps\+\_\+data\+\_\+t} struct where the data will be copied. \\
+\doxymbox{\texttt{out}}  & {\em data} & Pointer to a \textquotesingle{}\doxylink{structgps__data__t}{gps\+\_\+data\+\_\+t}\textquotesingle{} structure where the data will be copied. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{gps__module_8c_ab37f7040b9efd19fdd3f92b1df77e771}\index{gps\_module.c@{gps\_module.c}!gps\_init@{gps\_init}}
@@ -63,7 +74,10 @@ void gps\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCapti
 
 Initializes the GPS UART connection and GPIO pins. 
 
-Sets up the specified GPS\+\_\+\+UART\+\_\+\+ID with the baud rate defined in GPS\+\_\+\+BAUD\+\_\+\+RATE and configures the TX/\+\+RX pins. \Hypertarget{gps__module_8c_aeaba9d874c83b13a6cc8cc3d2c3626e0}\index{gps\_module.c@{gps\_module.c}!gps\_update@{gps\_update}}
+Sets up the specified GPS\+\_\+\+UART\+\_\+\+ID with the baud rate defined in GPS\+\_\+\+BAUD\+\_\+\+RATE and configures the TX/\+\+RX pins. \begin{DoxyNote}{Note}
+This must be called once at system startup before the main loop. 
+\end{DoxyNote}
+\Hypertarget{gps__module_8c_aeaba9d874c83b13a6cc8cc3d2c3626e0}\index{gps\_module.c@{gps\_module.c}!gps\_update@{gps\_update}}
 \index{gps\_update@{gps\_update}!gps\_module.c@{gps\_module.c}}
 \doxysubsubsection{\texorpdfstring{gps\_update()}{gps\_update()}}
 {\footnotesize\ttfamily \label{gps__module_8c_aeaba9d874c83b13a6cc8cc3d2c3626e0} 
@@ -73,9 +87,7 @@ bool gps\+\_\+update (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCap
 
 Polls the UART for newly aquired GPS data and sends it to be parsed. 
 
-This function should be called frequently (e.\+g., in the main loop). It reads available characters from the UART buffer and calls a function to process NMEA sentences.
-
-\begin{DoxyReturn}{Returns}
+This function should be called frequently (e.\+g., in the main loop). It reads available characters from the UART buffer and calls a function to process NMEA sentences. \begin{DoxyReturn}{Returns}
 true if a valid packet was fully parsed and data was updated. 
 
 false if no new complete packet is available yet. 

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CanSat Software: code/microsd_module.h Source File</title>
+<title>CanSat Software: src/microsd_module.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">CanSat Software<span id="projectnumber">&#160;0.1</span>
+   <div id="projectname">CanSat Software<span id="projectnumber">&#160;0.2</span>
    </div>
   </td>
  </tr>
@@ -91,42 +91,45 @@ $(function(){initNavTree('microsd__module_8h_source.html','',''); });
   <div class="headertitle"><div class="title">microsd_module.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="microsd__module_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef MICROSD_MODULE_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define MICROSD_MODULE_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;pico/stdlib.h&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="atm__sen__module_8h.html">atm_sen_module.h</a>&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="time__manager_8h.html">time_manager.h</a>&quot;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="gps__module_8h.html">gps_module.h</a>&quot;</span></div>
+<a href="microsd__module_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef MICROSD_MODULE_H</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define MICROSD_MODULE_H</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="microsd__module_8h.html#ab4bbf5729374ada6cfc3fc3ae7635a4c">sd_init</a>();</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="microsd__module_8h.html#ac17642027076b91b1b493720c2f16dd5">save_system_data</a>(<a class="code hl_struct" href="structsensor__readings__t.html">sensor_readings_t</a>* sen_data, <a class="code hl_struct" href="structcurrent__time__t.html">current_time_t</a>* time_date);</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">//extern void save_photo(current_time_t* state, uint8_t* image_buffer, uint32_t length);</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="microsd__module_8h.html#a3f02e5000c59360a22796e685fd45e33">save_gps_log</a>(<a class="code hl_struct" href="structgps__data__t.html">gps_data_t</a>* gps);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;pico/stdlib.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="atm__sen__module_8h.html">atm_sen_module.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="time__manager_8h.html">time_manager.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="gps__module_8h.html">gps_module.h</a>&quot;</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aatm__sen__module_8h_html"><div class="ttname"><a href="atm__sen__module_8h.html">atm_sen_module.h</a></div></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">// FUNCTIONS</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="microsd__module_8h.html#ab4bbf5729374ada6cfc3fc3ae7635a4c">sd_init</a>();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="microsd__module_8h.html#a11853d053c03ae484ad6832fcda30b89">save_system_data</a>(<a class="code hl_struct" href="structsensor__readings__t.html">sensor_readings_t</a> *data, <a class="code hl_struct" href="structcurrent__time__t.html">current_time_t</a> *time);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="microsd__module_8h.html#a3f02e5000c59360a22796e685fd45e33">save_gps_log</a>(<a class="code hl_struct" href="structgps__data__t.html">gps_data_t</a> *gps);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#endif </span><span class="comment">// MICROSD_MODULE_H</span></div>
+<div class="ttc" id="aatm__sen__module_8h_html"><div class="ttname"><a href="atm__sen__module_8h.html">atm_sen_module.h</a></div><div class="ttdoc">Atmospheric sensors module interface.</div></div>
 <div class="ttc" id="agps__module_8h_html"><div class="ttname"><a href="gps__module_8h.html">gps_module.h</a></div><div class="ttdoc">GPS module interface.</div></div>
-<div class="ttc" id="amicrosd__module_8h_html_a3f02e5000c59360a22796e685fd45e33"><div class="ttname"><a href="microsd__module_8h.html#a3f02e5000c59360a22796e685fd45e33">save_gps_log</a></div><div class="ttdeci">void save_gps_log(gps_data_t *gps)</div><div class="ttdef"><b>Definition</b> microsd_module.c:86</div></div>
-<div class="ttc" id="amicrosd__module_8h_html_ab4bbf5729374ada6cfc3fc3ae7635a4c"><div class="ttname"><a href="microsd__module_8h.html#ab4bbf5729374ada6cfc3fc3ae7635a4c">sd_init</a></div><div class="ttdeci">bool sd_init()</div><div class="ttdef"><b>Definition</b> microsd_module.c:17</div></div>
-<div class="ttc" id="amicrosd__module_8h_html_ac17642027076b91b1b493720c2f16dd5"><div class="ttname"><a href="microsd__module_8h.html#ac17642027076b91b1b493720c2f16dd5">save_system_data</a></div><div class="ttdeci">void save_system_data(sensor_readings_t *sen_data, current_time_t *time_date)</div><div class="ttdef"><b>Definition</b> microsd_module.c:38</div></div>
-<div class="ttc" id="astructcurrent__time__t_html"><div class="ttname"><a href="structcurrent__time__t.html">current_time_t</a></div><div class="ttdef"><b>Definition</b> time_manager.h:9</div></div>
-<div class="ttc" id="astructgps__data__t_html"><div class="ttname"><a href="structgps__data__t.html">gps_data_t</a></div><div class="ttdoc">These structures keep the parsed GPS position and time information.</div><div class="ttdef"><b>Definition</b> gps_module.h:41</div></div>
-<div class="ttc" id="astructsensor__readings__t_html"><div class="ttname"><a href="structsensor__readings__t.html">sensor_readings_t</a></div><div class="ttdef"><b>Definition</b> atm_sen_module.h:9</div></div>
-<div class="ttc" id="atime__manager_8h_html"><div class="ttname"><a href="time__manager_8h.html">time_manager.h</a></div></div>
+<div class="ttc" id="amicrosd__module_8h_html_a11853d053c03ae484ad6832fcda30b89"><div class="ttname"><a href="microsd__module_8h.html#a11853d053c03ae484ad6832fcda30b89">save_system_data</a></div><div class="ttdeci">void save_system_data(sensor_readings_t *data, current_time_t *time)</div><div class="ttdoc">Saves all data collected from sensors onto the microSD card in a &#39;data_log.txt&#39; file.</div><div class="ttdef"><b>Definition</b> microsd_module.c:33</div></div>
+<div class="ttc" id="amicrosd__module_8h_html_a3f02e5000c59360a22796e685fd45e33"><div class="ttname"><a href="microsd__module_8h.html#a3f02e5000c59360a22796e685fd45e33">save_gps_log</a></div><div class="ttdeci">void save_gps_log(gps_data_t *gps)</div><div class="ttdoc">Saves all GPS data onto the microSD card in a &#39;gps_log.csv&#39; file.</div><div class="ttdef"><b>Definition</b> microsd_module.c:67</div></div>
+<div class="ttc" id="amicrosd__module_8h_html_ab4bbf5729374ada6cfc3fc3ae7635a4c"><div class="ttname"><a href="microsd__module_8h.html#ab4bbf5729374ada6cfc3fc3ae7635a4c">sd_init</a></div><div class="ttdeci">bool sd_init()</div><div class="ttdoc">Initializes the Micro SD reader SPI connection and checks for successful mounting of the card.</div><div class="ttdef"><b>Definition</b> microsd_module.c:10</div></div>
+<div class="ttc" id="astructcurrent__time__t_html"><div class="ttname"><a href="structcurrent__time__t.html">current_time_t</a></div><div class="ttdoc">The structure stores data about the date, hour, minutes and seconds a reading was made and saved.</div><div class="ttdef"><b>Definition</b> time_manager.h:28</div></div>
+<div class="ttc" id="astructgps__data__t_html"><div class="ttname"><a href="structgps__data__t.html">gps_data_t</a></div><div class="ttdoc">The structure keeps the parsed GPS position and time information.</div><div class="ttdef"><b>Definition</b> gps_module.h:37</div></div>
+<div class="ttc" id="astructsensor__readings__t_html"><div class="ttname"><a href="structsensor__readings__t.html">sensor_readings_t</a></div><div class="ttdoc">Structure for keeping all data read from the atmospheric sensors.</div><div class="ttdef"><b>Definition</b> atm_sen_module.h:22</div></div>
+<div class="ttc" id="atime__manager_8h_html"><div class="ttname"><a href="time__manager_8h.html">time_manager.h</a></div><div class="ttdoc">Software RTC with GPS synchronization and FatFS integration.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a href="microsd__module_8h.html">microsd_module.h</a></li>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="microsd__module_8h.html">microsd_module.h</a></li>
     <li class="footer">Generated on <span class="timestamp"></span> for CanSat Software by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.0 </li>
   </ul>
 </div>

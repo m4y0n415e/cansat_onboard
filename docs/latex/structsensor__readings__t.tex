@@ -2,28 +2,34 @@
 \hypertarget{structsensor__readings__t}{}\label{structsensor__readings__t}\index{sensor\_readings\_t@{sensor\_readings\_t}}
 
 
+Structure for keeping all data read from the atmospheric sensors.  
+
+
+
+
 {\ttfamily \+\#include $<$atm\+\_\+sen\+\_\+module.\+h$>$}
 
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-char \doxymbox{\hyperlink{structsensor__readings__t_a39f0229c6ee0bacdb83f260e9ba8ede7}{timestamp\+\_\+str}} \+[20]\+
-\item 
 double \doxymbox{\hyperlink{structsensor__readings__t_acaf6d3a994baf23e13f1bb4892856e7a}{pressure\+\_\+pa}}
 \item 
 double \doxymbox{\hyperlink{structsensor__readings__t_a4192baf2c03956eace8cd219f9f08046}{altitude\+\_\+m}}
-\item 
+\begin{DoxyCompactList}\small\item\em Pressure reading in Pascals. \end{DoxyCompactList}\item 
 float \doxymbox{\hyperlink{structsensor__readings__t_adc16281b6e8d49f6517fe3b9148ee31d}{temperature\+\_\+c}}
-\item 
+\begin{DoxyCompactList}\small\item\em Altitude in meters. \end{DoxyCompactList}\item 
 float \doxymbox{\hyperlink{structsensor__readings__t_a21d687eb4b6624199b9b5494eb9fe76f}{humidity\+\_\+pct}}
-\item 
+\begin{DoxyCompactList}\small\item\em Temperature in Celsius degrees. \end{DoxyCompactList}\item 
 float \doxymbox{\hyperlink{structsensor__readings__t_afac2ec96be8c7b4b2a935dbba85a7125}{methane\+\_\+ppm}}
-\item 
+\begin{DoxyCompactList}\small\item\em Humidity percentage. \end{DoxyCompactList}\item 
 float \doxymbox{\hyperlink{structsensor__readings__t_a336979c64fc894b8584f0c4057c7c0b0}{ammonia\+\_\+ppm}}
-\item 
+\begin{DoxyCompactList}\small\item\em Methane in particles per million. \end{DoxyCompactList}\item 
 float \doxymbox{\hyperlink{structsensor__readings__t_a6c5b64c42bb537e7c53e8081a7fb49c2}{oxygen\+\_\+pct}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Ammonia in particles per million. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Structure for keeping all data read from the atmospheric sensors. 
 
 \label{doc-variable-members}
 \Hypertarget{structsensor__readings__t_doc-variable-members}
@@ -34,11 +40,19 @@ float \doxymbox{\hyperlink{structsensor__readings__t_a6c5b64c42bb537e7c53e8081a7
 {\footnotesize\ttfamily \label{structsensor__readings__t_a4192baf2c03956eace8cd219f9f08046} 
 double sensor\+\_\+readings\+\_\+t::\+altitude\+\_\+m}
 
+
+
+Pressure reading in Pascals. 
+
 \Hypertarget{structsensor__readings__t_a336979c64fc894b8584f0c4057c7c0b0}\index{sensor\_readings\_t@{sensor\_readings\_t}!ammonia\_ppm@{ammonia\_ppm}}
 \index{ammonia\_ppm@{ammonia\_ppm}!sensor\_readings\_t@{sensor\_readings\_t}}
 \doxysubsubsection{\texorpdfstring{ammonia\_ppm}{ammonia\_ppm}}
 {\footnotesize\ttfamily \label{structsensor__readings__t_a336979c64fc894b8584f0c4057c7c0b0} 
 float sensor\+\_\+readings\+\_\+t::\+ammonia\+\_\+ppm}
+
+
+
+Methane in particles per million. 
 
 \Hypertarget{structsensor__readings__t_a21d687eb4b6624199b9b5494eb9fe76f}\index{sensor\_readings\_t@{sensor\_readings\_t}!humidity\_pct@{humidity\_pct}}
 \index{humidity\_pct@{humidity\_pct}!sensor\_readings\_t@{sensor\_readings\_t}}
@@ -46,17 +60,29 @@ float sensor\+\_\+readings\+\_\+t::\+ammonia\+\_\+ppm}
 {\footnotesize\ttfamily \label{structsensor__readings__t_a21d687eb4b6624199b9b5494eb9fe76f} 
 float sensor\+\_\+readings\+\_\+t::\+humidity\+\_\+pct}
 
+
+
+Temperature in Celsius degrees. 
+
 \Hypertarget{structsensor__readings__t_afac2ec96be8c7b4b2a935dbba85a7125}\index{sensor\_readings\_t@{sensor\_readings\_t}!methane\_ppm@{methane\_ppm}}
 \index{methane\_ppm@{methane\_ppm}!sensor\_readings\_t@{sensor\_readings\_t}}
 \doxysubsubsection{\texorpdfstring{methane\_ppm}{methane\_ppm}}
 {\footnotesize\ttfamily \label{structsensor__readings__t_afac2ec96be8c7b4b2a935dbba85a7125} 
 float sensor\+\_\+readings\+\_\+t::\+methane\+\_\+ppm}
 
+
+
+Humidity percentage. 
+
 \Hypertarget{structsensor__readings__t_a6c5b64c42bb537e7c53e8081a7fb49c2}\index{sensor\_readings\_t@{sensor\_readings\_t}!oxygen\_pct@{oxygen\_pct}}
 \index{oxygen\_pct@{oxygen\_pct}!sensor\_readings\_t@{sensor\_readings\_t}}
 \doxysubsubsection{\texorpdfstring{oxygen\_pct}{oxygen\_pct}}
 {\footnotesize\ttfamily \label{structsensor__readings__t_a6c5b64c42bb537e7c53e8081a7fb49c2} 
 float sensor\+\_\+readings\+\_\+t::\+oxygen\+\_\+pct}
+
+
+
+Ammonia in particles per million. 
 
 \Hypertarget{structsensor__readings__t_acaf6d3a994baf23e13f1bb4892856e7a}\index{sensor\_readings\_t@{sensor\_readings\_t}!pressure\_pa@{pressure\_pa}}
 \index{pressure\_pa@{pressure\_pa}!sensor\_readings\_t@{sensor\_readings\_t}}
@@ -70,14 +96,12 @@ double sensor\+\_\+readings\+\_\+t::\+pressure\+\_\+pa}
 {\footnotesize\ttfamily \label{structsensor__readings__t_adc16281b6e8d49f6517fe3b9148ee31d} 
 float sensor\+\_\+readings\+\_\+t::\+temperature\+\_\+c}
 
-\Hypertarget{structsensor__readings__t_a39f0229c6ee0bacdb83f260e9ba8ede7}\index{sensor\_readings\_t@{sensor\_readings\_t}!timestamp\_str@{timestamp\_str}}
-\index{timestamp\_str@{timestamp\_str}!sensor\_readings\_t@{sensor\_readings\_t}}
-\doxysubsubsection{\texorpdfstring{timestamp\_str}{timestamp\_str}}
-{\footnotesize\ttfamily \label{structsensor__readings__t_a39f0229c6ee0bacdb83f260e9ba8ede7} 
-char sensor\+\_\+readings\+\_\+t::\+timestamp\+\_\+str\+[20]\+}
+
+
+Altitude in meters. 
 
 
 
 The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
 \item 
-code/\+\doxymbox{\hyperlink{atm__sen__module_8h}{atm\+\_\+sen\+\_\+module.\+h}}\end{DoxyCompactItemize}
+src/\+\doxymbox{\hyperlink{atm__sen__module_8h}{atm\+\_\+sen\+\_\+module.\+h}}\end{DoxyCompactItemize}

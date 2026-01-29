@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CanSat Software: code/atm_sen_module.c File Reference</title>
+<title>CanSat Software: src/atm_sen_module.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">CanSat Software<span id="projectnumber">&#160;0.1</span>
+   <div id="projectname">CanSat Software<span id="projectnumber">&#160;0.2</span>
    </div>
   </td>
  </tr>
@@ -96,8 +96,8 @@ $(function(){initNavTree('atm__sen__module_8c.html','',''); });
 <code>#include &quot;hardware/adc.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="atm__sen__module_8h_source.html">atm_sen_module.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="debug__mode_8h_source.html">debug_mode.h</a>&quot;</code><br />
-<code>#include &quot;libs/bmp280/bmp280_i2c.h&quot;</code><br />
-<code>#include &quot;libs/bmp280/bmp280_i2c_hal.h&quot;</code><br />
+<code>#include &quot;lib/bmp280/bmp280_i2c.h&quot;</code><br />
+<code>#include &quot;lib/bmp280/bmp280_i2c_hal.h&quot;</code><br />
 <code>#include &quot;dfrobot_oxygen.h&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
@@ -113,7 +113,9 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a9712cae043c55fed61bd975378702177" id="r_a9712cae043c55fed61bd975378702177"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9712cae043c55fed61bd975378702177">init_all_sensors</a> ()</td></tr>
+<tr class="memdesc:a9712cae043c55fed61bd975378702177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes all sensors with their I2C, SPI or UART connection (depending on which is necessary).  <br /></td></tr>
 <tr class="memitem:ae690ed8278c4695dd8afccad3883c98b" id="r_ae690ed8278c4695dd8afccad3883c98b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae690ed8278c4695dd8afccad3883c98b">read_all</a> (<a class="el" href="structsensor__readings__t.html">sensor_readings_t</a> *gathered_data)</td></tr>
+<tr class="memdesc:ae690ed8278c4695dd8afccad3883c98b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins readings from all the atmospheric sensors.  <br /></td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="ad9ecf80e1eac083d16ec47f9d3aeb39f" name="ad9ecf80e1eac083d16ec47f9d3aeb39f"></a>
@@ -230,6 +232,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initializes all sensors with their I2C, SPI or UART connection (depending on which is necessary). </p>
+<p>Within the function, for every sensor that needs initialization a dedicated function is called. This lays the grounds for starting continous readings. </p><dl class="section note"><dt>Note</dt><dd>This must be called once at system startup before the main loop. </dd></dl>
+
 </div>
 </div>
 <a id="ae690ed8278c4695dd8afccad3883c98b" name="ae690ed8278c4695dd8afccad3883c98b"></a>
@@ -247,6 +252,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Begins readings from all the atmospheric sensors. </p>
+<p>Within the function, for every sensor a dedicated _read function is called. The data read is then immediately saved in a dedicated structure. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">gathered_data</td><td>Pointer to the an object of a '<a class="el" href="structsensor__readings__t.html" title="Structure for keeping all data read from the atmospheric sensors.">sensor_readings_t</a>' structure, to which data read from sensors is immediatly saved to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -262,7 +275,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a href="atm__sen__module_8c.html">atm_sen_module.c</a></li>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="atm__sen__module_8c.html">atm_sen_module.c</a></li>
     <li class="footer">Generated on <span class="timestamp"></span> for CanSat Software by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.0 </li>
   </ul>
 </div>

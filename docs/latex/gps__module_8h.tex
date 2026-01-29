@@ -1,5 +1,5 @@
-\doxysection{code/\+gps\+\_\+module.h File Reference}
-\hypertarget{gps__module_8h}{}\label{gps__module_8h}\index{code/gps\_module.h@{code/gps\_module.h}}
+\doxysection{src/\+gps\+\_\+module.h File Reference}
+\hypertarget{gps__module_8h}{}\label{gps__module_8h}\index{src/gps\_module.h@{src/gps\_module.h}}
 
 
 GPS module interface.  
@@ -13,7 +13,7 @@ GPS module interface.
 \begin{DoxyCompactItemize}
 \item 
 struct \doxymbox{\hyperlink{structgps__data__t}{gps\+\_\+data\+\_\+t}}
-\begin{DoxyCompactList}\small\item\em These structures keep the parsed GPS position and time information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The structure keeps the parsed GPS position and time information. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -39,7 +39,10 @@ void \doxymbox{\hyperlink{gps__module_8h_a3e59e78bf5f458e9d3ee2255abab936f}{gps\
 \doxysubsection{Detailed Description}
 GPS module interface. 
 
-This file handles the UART configuration for the GPS module (Pico), defines the data structure for holding parsed GPS coordinates/\+time, and provides functions to initialize and update the system. 
+This file handles the UART configuration for Pico for the GPS module, defines the data structure for holding parsed GPS coordinates/\+time, and provides functions to initialize and update the system. \begin{DoxySeeAlso}{See also}
+\href{https://github.com/kosma/minmea}{\texttt{https:\+/\+/\+github.\+com/\+kosma/\+minmea}} for the NMEA parsing library documentation. 
+\end{DoxySeeAlso}
+
 
 \label{doc-define-members}
 \Hypertarget{gps__module_8h_doc-define-members}
@@ -99,11 +102,9 @@ void gps\+\_\+get\+\_\+data (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink
 
 Retrieves the latest parsed GPS data. 
 
-Copies the most recent valid GPS data into the provided gos\+\_\+data\+\_\+t structure.
-
-
+Copies the most recent valid GPS data into the provided \textquotesingle{}\doxylink{structgps__data__t}{gps\+\_\+data\+\_\+t}\textquotesingle{} structure. 
 \begin{DoxyParams}[1]{Parameters}
-\doxymbox{\texttt{out}}  & {\em data} & Pointer to a \doxylink{structgps__data__t}{gps\+\_\+data\+\_\+t} struct where the data will be copied. \\
+\doxymbox{\texttt{out}}  & {\em data} & Pointer to a \textquotesingle{}\doxylink{structgps__data__t}{gps\+\_\+data\+\_\+t}\textquotesingle{} structure where the data will be copied. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{gps__module_8h_ab37f7040b9efd19fdd3f92b1df77e771}\index{gps\_module.h@{gps\_module.h}!gps\_init@{gps\_init}}
@@ -116,7 +117,10 @@ void gps\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCapti
 
 Initializes the GPS UART connection and GPIO pins. 
 
-Sets up the specified GPS\+\_\+\+UART\+\_\+\+ID with the baud rate defined in GPS\+\_\+\+BAUD\+\_\+\+RATE and configures the TX/\+\+RX pins. \Hypertarget{gps__module_8h_aeaba9d874c83b13a6cc8cc3d2c3626e0}\index{gps\_module.h@{gps\_module.h}!gps\_update@{gps\_update}}
+Sets up the specified GPS\+\_\+\+UART\+\_\+\+ID with the baud rate defined in GPS\+\_\+\+BAUD\+\_\+\+RATE and configures the TX/\+\+RX pins. \begin{DoxyNote}{Note}
+This must be called once at system startup before the main loop. 
+\end{DoxyNote}
+\Hypertarget{gps__module_8h_aeaba9d874c83b13a6cc8cc3d2c3626e0}\index{gps\_module.h@{gps\_module.h}!gps\_update@{gps\_update}}
 \index{gps\_update@{gps\_update}!gps\_module.h@{gps\_module.h}}
 \doxysubsubsection{\texorpdfstring{gps\_update()}{gps\_update()}}
 {\footnotesize\ttfamily \label{gps__module_8h_aeaba9d874c83b13a6cc8cc3d2c3626e0} 
@@ -126,9 +130,7 @@ bool gps\+\_\+update (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCap
 
 Polls the UART for newly aquired GPS data and sends it to be parsed. 
 
-This function should be called frequently (e.\+g., in the main loop). It reads available characters from the UART buffer and calls a function to process NMEA sentences.
-
-\begin{DoxyReturn}{Returns}
+This function should be called frequently (e.\+g., in the main loop). It reads available characters from the UART buffer and calls a function to process NMEA sentences. \begin{DoxyReturn}{Returns}
 true if a valid packet was fully parsed and data was updated. 
 
 false if no new complete packet is available yet. 

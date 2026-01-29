@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['photo_5fcount_0',['photo_count',['../structcurrent__time__t.html#adba066b981331a6db8bd39e81f78c1df',1,'current_time_t']]],
-  ['pressure_5fpa_1',['pressure_pa',['../structsensor__readings__t.html#acaf6d3a994baf23e13f1bb4892856e7a',1,'sensor_readings_t']]]
+  ['satellites_0',['satellites',['../structgps__data__t.html#ac660bf8d350c3867099ec712e9813f44',1,'gps_data_t']]],
+  ['sec_1',['sec',['../structgps__data__t.html#ac903bfa7f60e3beb183876dec25595d2',1,'gps_data_t::sec'],['../structcurrent__time__t.html#a2a9543694716be55eee5d7a8409cb524',1,'current_time_t::sec']]]
 ];

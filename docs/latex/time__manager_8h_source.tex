@@ -1,33 +1,39 @@
 \doxysection{time\+\_\+manager.\+h}
-\hypertarget{time__manager_8h_source}{}\label{time__manager_8h_source}\index{code/time\_manager.h@{code/time\_manager.h}}
+\hypertarget{time__manager_8h_source}{}\label{time__manager_8h_source}\index{src/time\_manager.h@{src/time\_manager.h}}
 \doxymbox{\hyperlink{time__manager_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TIME\_MANAGER\_H}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TIME\_MANAGER\_H}}
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <time.h>}}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }}
-\DoxyCodeLine{00009\ \{}
-\DoxyCodeLine{00010\ \ \ \ \ uint16\_t\ \doxymbox{\hyperlink{structcurrent__time__t_a5bdb8abf56c43c34c1525b82786a2208}{year}};}
-\DoxyCodeLine{00011\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{structcurrent__time__t_aa56388a2d3763e9ade3a5285394f3c12}{month}};}
-\DoxyCodeLine{00012\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{structcurrent__time__t_a9714a4052759c01c975785f73ca0ef89}{day}};}
-\DoxyCodeLine{00013\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{structcurrent__time__t_aa525ff83adce8898b6c8b34c91bc764c}{hour}};}
-\DoxyCodeLine{00014\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{structcurrent__time__t_af37bf28eec6fed1ba7b051186f6023d0}{min}};}
-\DoxyCodeLine{00015\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{structcurrent__time__t_a2a9543694716be55eee5d7a8409cb524}{sec}};}
-\DoxyCodeLine{00016\ \ \ \ \ uint16\_t\ \doxymbox{\hyperlink{structcurrent__time__t_adba066b981331a6db8bd39e81f78c1df}{photo\_count}};}
-\DoxyCodeLine{00017\ \}\ \doxymbox{\hyperlink{structcurrent__time__t}{current\_time\_t}};}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{time__manager_8h_a3a22b1d94e247980fd1a29ae8eb19bf6}{time\_manager\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ TIME\_MANAGER\_H}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ TIME\_MANAGER\_H}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <time.h>}}
 \DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{time__manager_8h_a7f053b33e4a11799b757855ab7a4d6ea}{time\_manager\_update}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ DATA\ STRUCTURES}}
 \DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{time__manager_8h_ac3609b1d90b910e77e677a873c7dcb93}{time\_manager\_sync}}(uint8\_t\ hour,\ uint8\_t\ min,\ uint8\_t\ sec);}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{structcurrent__time__t}{current\_time\_t}}*\ \doxymbox{\hyperlink{time__manager_8h_ade7b230e754a1c68c280687071b58751}{time\_manager\_get}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00027\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ uint16\_t\ \doxymbox{\hyperlink{structcurrent__time__t_a5bdb8abf56c43c34c1525b82786a2208}{year}};}
+\DoxyCodeLine{00030\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{structcurrent__time__t_aa56388a2d3763e9ade3a5285394f3c12}{month}};}
+\DoxyCodeLine{00031\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{structcurrent__time__t_a9714a4052759c01c975785f73ca0ef89}{day}};}
+\DoxyCodeLine{00032\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{structcurrent__time__t_aa525ff83adce8898b6c8b34c91bc764c}{hour}};}
+\DoxyCodeLine{00033\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{structcurrent__time__t_af37bf28eec6fed1ba7b051186f6023d0}{min}};}
+\DoxyCodeLine{00034\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{structcurrent__time__t_a2a9543694716be55eee5d7a8409cb524}{sec}};}
+\DoxyCodeLine{00035\ \ \ \ \ uint16\_t\ \doxymbox{\hyperlink{structcurrent__time__t_adba066b981331a6db8bd39e81f78c1df}{photo\_count}};\ }
+\DoxyCodeLine{00036\ \}\ \doxymbox{\hyperlink{structcurrent__time__t}{current\_time\_t}};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ FUNCTIONS}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{time__manager_8h_a3a22b1d94e247980fd1a29ae8eb19bf6}{time\_manager\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{time__manager_8h_a7f053b33e4a11799b757855ab7a4d6ea}{time\_manager\_update}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{structcurrent__time__t}{current\_time\_t}}*\ \doxymbox{\hyperlink{time__manager_8h_ade7b230e754a1c68c280687071b58751}{time\_manager\_get}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00083\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{time__manager_8h_a31a781682c9a9732cb9109c8cd7300ac}{time\_manager\_sync}}(uint16\_t\ year,\ uint8\_t\ month,\ uint8\_t\ day,\ uint8\_t\ hour,\ uint8\_t\ min,\ uint8\_t\ sec);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CanSat Software: code/time_manager.h File Reference</title>
+<title>CanSat Software: src/time_manager.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">CanSat Software<span id="projectnumber">&#160;0.1</span>
+   <div id="projectname">CanSat Software<span id="projectnumber">&#160;0.2</span>
    </div>
   </td>
  </tr>
@@ -91,6 +91,9 @@ $(function(){initNavTree('time__manager_8h.html','',''); });
   <div class="headertitle"><div class="title">time_manager.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Software RTC with GPS synchronization and FatFS integration.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;time.h&gt;</code><br />
@@ -100,15 +103,30 @@ $(function(){initNavTree('time__manager_8h.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:current_5Ftime_5Ft" id="r_current_5Ftime_5Ft"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structcurrent__time__t.html">current_time_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The structure stores data about the date, hour, minutes and seconds a reading was made and saved.  <a href="structcurrent__time__t.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a3a22b1d94e247980fd1a29ae8eb19bf6" id="r_a3a22b1d94e247980fd1a29ae8eb19bf6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3a22b1d94e247980fd1a29ae8eb19bf6">time_manager_init</a> (void)</td></tr>
+<tr class="memdesc:a3a22b1d94e247980fd1a29ae8eb19bf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the Software Real-Time Clock (RTC).  <br /></td></tr>
 <tr class="memitem:a7f053b33e4a11799b757855ab7a4d6ea" id="r_a7f053b33e4a11799b757855ab7a4d6ea"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7f053b33e4a11799b757855ab7a4d6ea">time_manager_update</a> (void)</td></tr>
-<tr class="memitem:ac3609b1d90b910e77e677a873c7dcb93" id="r_ac3609b1d90b910e77e677a873c7dcb93"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac3609b1d90b910e77e677a873c7dcb93">time_manager_sync</a> (uint8_t hour, uint8_t min, uint8_t sec)</td></tr>
+<tr class="memdesc:a7f053b33e4a11799b757855ab7a4d6ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ticks the internal clock forward.  <br /></td></tr>
 <tr class="memitem:ade7b230e754a1c68c280687071b58751" id="r_ade7b230e754a1c68c280687071b58751"><td class="memItemLeft"><a class="el" href="structcurrent__time__t.html">current_time_t</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ade7b230e754a1c68c280687071b58751">time_manager_get</a> (void)</td></tr>
+<tr class="memdesc:ade7b230e754a1c68c280687071b58751"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the current system time in a human-readable format.  <br /></td></tr>
+<tr class="memitem:a31a781682c9a9732cb9109c8cd7300ac" id="r_a31a781682c9a9732cb9109c8cd7300ac"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a31a781682c9a9732cb9109c8cd7300ac">time_manager_sync</a> (uint16_t year, uint8_t month, uint8_t day, uint8_t hour, uint8_t min, uint8_t sec)</td></tr>
+<tr class="memdesc:a31a781682c9a9732cb9109c8cd7300ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronizes the internal clock with an external source (e.g., GPS). Overwrites the internal time counter with new values provided by the GPS.  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Software RTC with GPS synchronization and FatFS integration. </p>
+<p>Maintains system time using system ticks (<span class="tt">to_ms_since_boot</span>), independent of hardware RTC. It features:</p><ul>
+<li>a sync with GPS: corrects drift and sets time/date via NMEA data.</li>
+<li>a FatFS backend: provides timestamps for SD card files.</li>
+<li>timezones: applies static offsets defined by <span class="tt"><a class="el" href="time__manager_8c.html#ad002a29d99eafe389580285df1b17b62">TIMEZONE_OFFSET</a></span>.</li>
+<li>Usage: Calling <span class="tt"><a class="el" href="#a3a22b1d94e247980fd1a29ae8eb19bf6" title="Initializes the Software Real-Time Clock (RTC).">time_manager_init()</a></span> at startup, <span class="tt"><a class="el" href="#a7f053b33e4a11799b757855ab7a4d6ea" title="Ticks the internal clock forward.">time_manager_update()</a></span> periodically in the loop, and <span class="tt"><a class="el" href="#a31a781682c9a9732cb9109c8cd7300ac" title="Synchronizes the internal clock with an external source (e.g., GPS). Overwrites the internal time cou...">time_manager_sync()</a></span> when valid GPS data exists.</li>
+<li><dl class="section note"><dt>Note</dt><dd>Replaces the default <span class="tt">rtc.c</span> to remove hardware dependencies that were trublesome. </dd></dl>
+</li>
+</ul>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="ade7b230e754a1c68c280687071b58751" name="ade7b230e754a1c68c280687071b58751"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ade7b230e754a1c68c280687071b58751">&#9670;&#160;</a></span>time_manager_get()</h2>
 
@@ -131,6 +149,12 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Retrieves the current system time in a human-readable format. </p>
+<p>Converts the internal epoch timestamp (<span class="tt">raw_seconds</span>) into a <span class="tt"><a class="el" href="structcurrent__time__t.html" title="The structure stores data about the date, hour, minutes and seconds a reading was made and saved.">current_time_t</a></span> structure containing year, month, day, hour, minute, and second. If the time is exactly 00:00:00 (Midnight), this function automatically resets the <span class="tt">photo_count</span> field to 0.</p><ul>
+<li><dl class="section return"><dt>Returns</dt><dd>current_time_t* Pointer to the structure holding the current time. </dd></dl>
+</li>
+</ul>
 
 </div>
 </div>
@@ -157,10 +181,16 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Initializes the Software Real-Time Clock (RTC). </p>
+<p>Sets the internal system time to a default start date (January 1, 2026). It captures the current processor boot time (<span class="tt">to_ms_since_boot</span>) to establish a baseline for the 1-second tick counter.</p><ul>
+<li><dl class="section note"><dt>Note</dt><dd>This must be called once at system startup before the main loop. </dd></dl>
+</li>
+</ul>
+
 </div>
 </div>
-<a id="ac3609b1d90b910e77e677a873c7dcb93" name="ac3609b1d90b910e77e677a873c7dcb93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3609b1d90b910e77e677a873c7dcb93">&#9670;&#160;</a></span>time_manager_sync()</h2>
+<a id="a31a781682c9a9732cb9109c8cd7300ac" name="a31a781682c9a9732cb9109c8cd7300ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31a781682c9a9732cb9109c8cd7300ac">&#9670;&#160;</a></span>time_manager_sync()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -171,6 +201,21 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void time_manager_sync </td>
           <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>year</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>month</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>day</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>hour</em></span>, </td>
         </tr>
         <tr>
@@ -190,6 +235,25 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Synchronizes the internal clock with an external source (e.g., GPS). Overwrites the internal time counter with new values provided by the GPS. </p>
+<ul>
+<li>Automatically applies the defined <span class="tt"><a class="el" href="time__manager_8c.html#ad002a29d99eafe389580285df1b17b62">TIMEZONE_OFFSET</a></span> to the provided UTC hour.</li>
+<li>Uses <span class="tt">mktime()</span> to safe-handle hour overflows. For example, if the GPS says 23:00 UTC and your offset is +2, the date automatically moves on to the next day.</li>
+<li>Resets the millisecond counter (<span class="tt">last_second_ms</span>) to zero, ensuring the next software "tick" happens exactly 1 second after this sync occurs.</li>
+<li><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">year</td><td>Full year (e.g., 2026). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">month</td><td>Month number (1-12). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">day</td><td>Day of the month (1-31). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">hour</td><td>UTC Hour (0-23). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">min</td><td>Minute (0-59). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sec</td><td>Second (0-59). </td></tr>
+  </table>
+  </dd>
+</dl>
+</li>
+</ul>
 
 </div>
 </div>
@@ -216,6 +280,14 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Ticks the internal clock forward. </p>
+<p>This function checks the system's millisecond timer. If 1000ms have passed since the last tick, it increments the internal <span class="tt">raw_seconds</span> counter and updates the reference timer. This function is non-blocking and is designed to be called frequently inside the main <span class="tt">while(1)</span> loop.</p><ul>
+<li><dl class="section return"><dt>Returns</dt><dd>true If a full second has passed during this call (useful for triggering 1Hz events like LED blinks). </dd>
+<dd>
+false If less than 1 second has passed since the last update. </dd></dl>
+</li>
+</ul>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -231,7 +303,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a href="time__manager_8h.html">time_manager.h</a></li>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="time__manager_8h.html">time_manager.h</a></li>
     <li class="footer">Generated on <span class="timestamp"></span> for CanSat Software by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.0 </li>
   </ul>
 </div>

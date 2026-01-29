@@ -6,6 +6,5 @@ var structsensor__readings__t =
     [ "methane_ppm", "structsensor__readings__t.html#afac2ec96be8c7b4b2a935dbba85a7125", null ],
     [ "oxygen_pct", "structsensor__readings__t.html#a6c5b64c42bb537e7c53e8081a7fb49c2", null ],
     [ "pressure_pa", "structsensor__readings__t.html#acaf6d3a994baf23e13f1bb4892856e7a", null ],
-    [ "temperature_c", "structsensor__readings__t.html#adc16281b6e8d49f6517fe3b9148ee31d", null ],
-    [ "timestamp_str", "structsensor__readings__t.html#a39f0229c6ee0bacdb83f260e9ba8ede7", null ]
+    [ "temperature_c", "structsensor__readings__t.html#adc16281b6e8d49f6517fe3b9148ee31d", null ]
 ];

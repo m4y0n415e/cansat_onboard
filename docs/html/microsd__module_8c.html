@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CanSat Software: code/microsd_module.c File Reference</title>
+<title>CanSat Software: src/microsd_module.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">CanSat Software<span id="projectnumber">&#160;0.1</span>
+   <div id="projectname">CanSat Software<span id="projectnumber">&#160;0.2</span>
    </div>
   </td>
  </tr>
@@ -91,20 +91,22 @@ $(function(){initNavTree('microsd__module_8c.html','',''); });
   <div class="headertitle"><div class="title">microsd_module.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;string.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="microsd__module_8h_source.html">microsd_module.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="microsd__module_8h_source.html">microsd_module.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="debug__mode_8h_source.html">debug_mode.h</a>&quot;</code><br />
-<code>#include &quot;ff.h&quot;</code><br />
-<code>#include &quot;f_util.h&quot;</code><br />
-<code>#include &quot;diskio.h&quot;</code><br />
-<code>#include &quot;hw_config.h&quot;</code><br />
 <code>#include &quot;hardware/spi.h&quot;</code><br />
+<code>#include &quot;ff.h&quot;</code><br />
+<code>#include &quot;sd_card.h&quot;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ae019a1533d42fd3972c3f1eea96d23d4" id="r_ae019a1533d42fd3972c3f1eea96d23d4"><td class="memItemLeft">sd_card_t *&#160;</td><td class="memItemRight"><a class="el" href="#ae019a1533d42fd3972c3f1eea96d23d4">sd_get_by_num</a> (size_t num)</td></tr>
 <tr class="memitem:ab4bbf5729374ada6cfc3fc3ae7635a4c" id="r_ab4bbf5729374ada6cfc3fc3ae7635a4c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab4bbf5729374ada6cfc3fc3ae7635a4c">sd_init</a> ()</td></tr>
+<tr class="memdesc:ab4bbf5729374ada6cfc3fc3ae7635a4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the Micro SD reader SPI connection and checks for successful mounting of the card.  <br /></td></tr>
 <tr class="memitem:a11853d053c03ae484ad6832fcda30b89" id="r_a11853d053c03ae484ad6832fcda30b89"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a11853d053c03ae484ad6832fcda30b89">save_system_data</a> (<a class="el" href="structsensor__readings__t.html">sensor_readings_t</a> *data, <a class="el" href="structcurrent__time__t.html">current_time_t</a> *time)</td></tr>
+<tr class="memdesc:a11853d053c03ae484ad6832fcda30b89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves all data collected from sensors onto the microSD card in a 'data_log.txt' file.  <br /></td></tr>
 <tr class="memitem:a3f02e5000c59360a22796e685fd45e33" id="r_a3f02e5000c59360a22796e685fd45e33"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3f02e5000c59360a22796e685fd45e33">save_gps_log</a> (<a class="el" href="structgps__data__t.html">gps_data_t</a> *gps)</td></tr>
+<tr class="memdesc:a3f02e5000c59360a22796e685fd45e33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves all GPS data onto the microSD card in a 'gps_log.csv' file.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a3f02e5000c59360a22796e685fd45e33" name="a3f02e5000c59360a22796e685fd45e33"></a>
@@ -121,6 +123,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Saves all GPS data onto the microSD card in a 'gps_log.csv' file. </p>
+<p>It uses the functions available in the beforementioned library to save formatted strings with values read from the GPS kept in a '<a class="el" href="structgps__data__t.html" title="The structure keeps the parsed GPS position and time information.">gps_data_t</a>' structure onto the microSD. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname"><a class="el" href="structgps__data__t.html" title="The structure keeps the parsed GPS position and time information.">gps_data_t</a></td><td>Pointer to a structure keeping data read from GPS and properly parsed. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -143,6 +153,40 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Saves all data collected from sensors onto the microSD card in a 'data_log.txt' file. </p>
+<p>It uses the functions available in the beforementioned library to save formatted strings with values read from sensors kept in a '<a class="el" href="structsensor__readings__t.html" title="Structure for keeping all data read from the atmospheric sensors.">sensor_readings_t</a>' file onto the microSD. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>Pointer to a '<a class="el" href="structsensor__readings__t.html" title="Structure for keeping all data read from the atmospheric sensors.">sensor_readings_t</a>' data struct which stores the data to to be saved on the microSD card. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>Pointer to a time-keeping structure that plays a role in time management for the timestamps in the 'data_log.txt' file. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae019a1533d42fd3972c3f1eea96d23d4" name="ae019a1533d42fd3972c3f1eea96d23d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae019a1533d42fd3972c3f1eea96d23d4">&#9670;&#160;</a></span>sd_get_by_num()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sd_card_t * sd_get_by_num </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>num</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 </div>
 </div>
 <a id="ab4bbf5729374ada6cfc3fc3ae7635a4c" name="ab4bbf5729374ada6cfc3fc3ae7635a4c"></a>
@@ -160,34 +204,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="ae5bcde72e0e0b29ec86d00ba3e5cd51f" name="ae5bcde72e0e0b29ec86d00ba3e5cd51f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5bcde72e0e0b29ec86d00ba3e5cd51f">&#9670;&#160;</a></span>fs</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FATFS fs</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af37d8a9de667e1f1b4b8cfda020f33a5" name="af37d8a9de667e1f1b4b8cfda020f33a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af37d8a9de667e1f1b4b8cfda020f33a5">&#9670;&#160;</a></span>is_mounted</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool is_mounted</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Initializes the Micro SD reader SPI connection and checks for successful mounting of the card. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if the reader is correctly initialized and the microSD card is mounted. </dd>
+<dd>
+false if the reader setup or the microSD card mount fails. </dd></dl>
 
 </div>
 </div>
@@ -204,7 +224,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a href="microsd__module_8c.html">microsd_module.c</a></li>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="microsd__module_8c.html">microsd_module.c</a></li>
     <li class="footer">Generated on <span class="timestamp"></span> for CanSat Software by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.0 </li>
   </ul>
 </div>

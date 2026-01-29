@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">CanSat Software<span id="projectnumber">&#160;0.1</span>
+   <div id="projectname">CanSat Software<span id="projectnumber">&#160;0.2</span>
    </div>
   </td>
  </tr>
@@ -92,7 +92,7 @@ $(function(){initNavTree('structgps__data__t.html','','structgps__data__t-member
 </div><!--header-->
 <div class="contents">
 
-<p>These structures keep the parsed GPS position and time information.  
+<p>The structure keeps the parsed GPS position and time information.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="gps__module_8h_source.html">gps_module.h</a>&gt;</code></p>
@@ -112,12 +112,15 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:af12b5c51d6698789dec052c150c441db"><td class="mdescLeft">&#160;</td><td class="mdescRight">UTC Hour.  <br /></td></tr>
 <tr class="memitem:ac903bfa7f60e3beb183876dec25595d2" id="r_ac903bfa7f60e3beb183876dec25595d2"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#ac903bfa7f60e3beb183876dec25595d2">sec</a></td></tr>
 <tr class="memdesc:ac903bfa7f60e3beb183876dec25595d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">UTC Minute.  <br /></td></tr>
+<tr class="memitem:a9d1dd0171d0b3a26d010c9168acd2194" id="r_a9d1dd0171d0b3a26d010c9168acd2194"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a9d1dd0171d0b3a26d010c9168acd2194">year</a></td></tr>
+<tr class="memdesc:a9d1dd0171d0b3a26d010c9168acd2194"><td class="mdescLeft">&#160;</td><td class="mdescRight">UTC Second.  <br /></td></tr>
+<tr class="memitem:ade873586f35d99ad60b669d6f3b4db6c" id="r_ade873586f35d99ad60b669d6f3b4db6c"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#ade873586f35d99ad60b669d6f3b4db6c">month</a></td></tr>
+<tr class="memitem:a7d04410c3aedbb6ed645c4219efd72e8" id="r_a7d04410c3aedbb6ed645c4219efd72e8"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a7d04410c3aedbb6ed645c4219efd72e8">day</a></td></tr>
 <tr class="memitem:a98f6318e979419b4d528502f06c6e042" id="r_a98f6318e979419b4d528502f06c6e042"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a98f6318e979419b4d528502f06c6e042">fix</a></td></tr>
-<tr class="memdesc:a98f6318e979419b4d528502f06c6e042"><td class="mdescLeft">&#160;</td><td class="mdescRight">UTC Second.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>These structures keep the parsed GPS position and time information. </p>
-<p>The structure is updated whenever a valid NMEA senstence ($GPRMC in this case) is succesfully parsed. </p>
+<div class="textblock"><p>The structure keeps the parsed GPS position and time information. </p>
+<p>It is updated whenever a valid NMEA senstence ($GPRMC in this case) is succesfully parsed. </p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
 <a id="a314661f70c489a57e1014e81e115a373" name="a314661f70c489a57e1014e81e115a373"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a314661f70c489a57e1014e81e115a373">&#9670;&#160;</a></span>altitude</h2>
@@ -135,6 +138,20 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a7d04410c3aedbb6ed645c4219efd72e8" name="a7d04410c3aedbb6ed645c4219efd72e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d04410c3aedbb6ed645c4219efd72e8">&#9670;&#160;</a></span>day</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t gps_data_t::day</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a98f6318e979419b4d528502f06c6e042" name="a98f6318e979419b4d528502f06c6e042"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a98f6318e979419b4d528502f06c6e042">&#9670;&#160;</a></span>fix</h2>
 
@@ -146,8 +163,6 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>UTC Second. </p>
 
 </div>
 </div>
@@ -213,6 +228,20 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ade873586f35d99ad60b669d6f3b4db6c" name="ade873586f35d99ad60b669d6f3b4db6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade873586f35d99ad60b669d6f3b4db6c">&#9670;&#160;</a></span>month</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t gps_data_t::month</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ac660bf8d350c3867099ec712e9813f44" name="ac660bf8d350c3867099ec712e9813f44"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac660bf8d350c3867099ec712e9813f44">&#9670;&#160;</a></span>satellites</h2>
 
@@ -245,8 +274,24 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a9d1dd0171d0b3a26d010c9168acd2194" name="a9d1dd0171d0b3a26d010c9168acd2194"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d1dd0171d0b3a26d010c9168acd2194">&#9670;&#160;</a></span>year</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t gps_data_t::year</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>UTC Second. </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>code/<a class="el" href="gps__module_8h_source.html">gps_module.h</a></li>
+<li>src/<a class="el" href="gps__module_8h_source.html">gps_module.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

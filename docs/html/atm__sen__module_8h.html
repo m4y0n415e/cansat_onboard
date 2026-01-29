@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CanSat Software: code/atm_sen_module.h File Reference</title>
+<title>CanSat Software: src/atm_sen_module.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">CanSat Software<span id="projectnumber">&#160;0.1</span>
+   <div id="projectname">CanSat Software<span id="projectnumber">&#160;0.2</span>
    </div>
   </td>
  </tr>
@@ -91,6 +91,9 @@ $(function(){initNavTree('atm__sen__module_8h.html','',''); });
   <div class="headertitle"><div class="title">atm_sen_module.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Atmospheric sensors module interface.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;pico/stdlib.h&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
@@ -100,13 +103,19 @@ $(function(){initNavTree('atm__sen__module_8h.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:sensor_5Freadings_5Ft" id="r_sensor_5Freadings_5Ft"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structsensor__readings__t.html">sensor_readings_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure for keeping all data read from the atmospheric sensors.  <a href="structsensor__readings__t.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ab0ab9ff6e62f1d4146260a43776ff3de" id="r_ab0ab9ff6e62f1d4146260a43776ff3de"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab0ab9ff6e62f1d4146260a43776ff3de">init_all_sensors</a> (void)</td></tr>
+<tr class="memdesc:ab0ab9ff6e62f1d4146260a43776ff3de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes all sensors with their I2C, SPI or UART connection (depending on which is necessary).  <br /></td></tr>
 <tr class="memitem:ae690ed8278c4695dd8afccad3883c98b" id="r_ae690ed8278c4695dd8afccad3883c98b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae690ed8278c4695dd8afccad3883c98b">read_all</a> (<a class="el" href="structsensor__readings__t.html">sensor_readings_t</a> *gathered_data)</td></tr>
+<tr class="memdesc:ae690ed8278c4695dd8afccad3883c98b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins readings from all the atmospheric sensors.  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Atmospheric sensors module interface. </p>
+<p>This file handles the configuration of all atmospheric sensors, through I2C, SPI and UART. It provides functions to initialize and conduct readings from all the sensors, saving them to a dedicated '<a class="el" href="structsensor__readings__t.html" title="Structure for keeping all data read from the atmospheric sensors.">sensor_readings_t</a>' structure. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="ab0ab9ff6e62f1d4146260a43776ff3de" name="ab0ab9ff6e62f1d4146260a43776ff3de"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab0ab9ff6e62f1d4146260a43776ff3de">&#9670;&#160;</a></span>init_all_sensors()</h2>
 
@@ -129,6 +138,9 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Initializes all sensors with their I2C, SPI or UART connection (depending on which is necessary). </p>
+<p>Within the function, for every sensor that needs initialization a dedicated function is called. This lays the grounds for starting continous readings. </p><dl class="section note"><dt>Note</dt><dd>This must be called once at system startup before the main loop. </dd></dl>
 
 </div>
 </div>
@@ -155,6 +167,14 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Begins readings from all the atmospheric sensors. </p>
+<p>Within the function, for every sensor a dedicated _read function is called. The data read is then immediately saved in a dedicated structure. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">gathered_data</td><td>Pointer to the an object of a '<a class="el" href="structsensor__readings__t.html" title="Structure for keeping all data read from the atmospheric sensors.">sensor_readings_t</a>' structure, to which data read from sensors is immediatly saved to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -170,7 +190,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a href="atm__sen__module_8h.html">atm_sen_module.h</a></li>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="atm__sen__module_8h.html">atm_sen_module.h</a></li>
     <li class="footer">Generated on <span class="timestamp"></span> for CanSat Software by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.0 </li>
   </ul>
 </div>

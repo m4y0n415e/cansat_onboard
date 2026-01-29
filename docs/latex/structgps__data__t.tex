@@ -2,7 +2,7 @@
 \hypertarget{structgps__data__t}{}\label{structgps__data__t}\index{gps\_data\_t@{gps\_data\_t}}
 
 
-These structures keep the parsed GPS position and time information.  
+The structure keeps the parsed GPS position and time information.  
 
 
 
@@ -26,14 +26,20 @@ uint8\+\_\+t \doxymbox{\hyperlink{structgps__data__t_af12b5c51d6698789dec052c150
 \begin{DoxyCompactList}\small\item\em UTC Hour. \end{DoxyCompactList}\item 
 uint8\+\_\+t \doxymbox{\hyperlink{structgps__data__t_ac903bfa7f60e3beb183876dec25595d2}{sec}}
 \begin{DoxyCompactList}\small\item\em UTC Minute. \end{DoxyCompactList}\item 
+uint16\+\_\+t \doxymbox{\hyperlink{structgps__data__t_a9d1dd0171d0b3a26d010c9168acd2194}{year}}
+\begin{DoxyCompactList}\small\item\em UTC Second. \end{DoxyCompactList}\item 
+uint8\+\_\+t \doxymbox{\hyperlink{structgps__data__t_ade873586f35d99ad60b669d6f3b4db6c}{month}}
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{structgps__data__t_a7d04410c3aedbb6ed645c4219efd72e8}{day}}
+\item 
 bool \doxymbox{\hyperlink{structgps__data__t_a98f6318e979419b4d528502f06c6e042}{fix}}
-\begin{DoxyCompactList}\small\item\em UTC Second. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-These structures keep the parsed GPS position and time information. 
+The structure keeps the parsed GPS position and time information. 
 
-The structure is updated whenever a valid NMEA senstence (\$\+GPRMC in this case) is succesfully parsed. 
+It is updated whenever a valid NMEA senstence (\$\+GPRMC in this case) is succesfully parsed. 
 
 \label{doc-variable-members}
 \Hypertarget{structgps__data__t_doc-variable-members}
@@ -48,15 +54,17 @@ float gps\+\_\+data\+\_\+t::\+altitude}
 
 Longitude in decimal degrees. 
 
+\Hypertarget{structgps__data__t_a7d04410c3aedbb6ed645c4219efd72e8}\index{gps\_data\_t@{gps\_data\_t}!day@{day}}
+\index{day@{day}!gps\_data\_t@{gps\_data\_t}}
+\doxysubsubsection{\texorpdfstring{day}{day}}
+{\footnotesize\ttfamily \label{structgps__data__t_a7d04410c3aedbb6ed645c4219efd72e8} 
+uint8\+\_\+t gps\+\_\+data\+\_\+t::\+day}
+
 \Hypertarget{structgps__data__t_a98f6318e979419b4d528502f06c6e042}\index{gps\_data\_t@{gps\_data\_t}!fix@{fix}}
 \index{fix@{fix}!gps\_data\_t@{gps\_data\_t}}
 \doxysubsubsection{\texorpdfstring{fix}{fix}}
 {\footnotesize\ttfamily \label{structgps__data__t_a98f6318e979419b4d528502f06c6e042} 
 bool gps\+\_\+data\+\_\+t::\+fix}
-
-
-
-UTC Second. 
 
 \Hypertarget{structgps__data__t_a7cba83c9ff4a16a88a7fe5aeffe1d4f8}\index{gps\_data\_t@{gps\_data\_t}!hour@{hour}}
 \index{hour@{hour}!gps\_data\_t@{gps\_data\_t}}
@@ -94,6 +102,12 @@ uint8\+\_\+t gps\+\_\+data\+\_\+t::\+min}
 
 UTC Hour. 
 
+\Hypertarget{structgps__data__t_ade873586f35d99ad60b669d6f3b4db6c}\index{gps\_data\_t@{gps\_data\_t}!month@{month}}
+\index{month@{month}!gps\_data\_t@{gps\_data\_t}}
+\doxysubsubsection{\texorpdfstring{month}{month}}
+{\footnotesize\ttfamily \label{structgps__data__t_ade873586f35d99ad60b669d6f3b4db6c} 
+uint8\+\_\+t gps\+\_\+data\+\_\+t::\+month}
+
 \Hypertarget{structgps__data__t_ac660bf8d350c3867099ec712e9813f44}\index{gps\_data\_t@{gps\_data\_t}!satellites@{satellites}}
 \index{satellites@{satellites}!gps\_data\_t@{gps\_data\_t}}
 \doxysubsubsection{\texorpdfstring{satellites}{satellites}}
@@ -114,8 +128,18 @@ uint8\+\_\+t gps\+\_\+data\+\_\+t::\+sec}
 
 UTC Minute. 
 
+\Hypertarget{structgps__data__t_a9d1dd0171d0b3a26d010c9168acd2194}\index{gps\_data\_t@{gps\_data\_t}!year@{year}}
+\index{year@{year}!gps\_data\_t@{gps\_data\_t}}
+\doxysubsubsection{\texorpdfstring{year}{year}}
+{\footnotesize\ttfamily \label{structgps__data__t_a9d1dd0171d0b3a26d010c9168acd2194} 
+uint16\+\_\+t gps\+\_\+data\+\_\+t::\+year}
+
+
+
+UTC Second. 
+
 
 
 The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
 \item 
-code/\+\doxymbox{\hyperlink{gps__module_8h}{gps\+\_\+module.\+h}}\end{DoxyCompactItemize}
+src/\+\doxymbox{\hyperlink{gps__module_8h}{gps\+\_\+module.\+h}}\end{DoxyCompactItemize}

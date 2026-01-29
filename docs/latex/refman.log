@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.13)  13 JAN 2026 13:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.13)  24 JAN 2026 23:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -895,6 +895,12 @@ LaTeX Warning: Label `doc-func-members' multiply defined.
 LaTeX Warning: Label `doc-func-members' multiply defined.
 
 
+LaTeX Warning: Label `doc-func-members' multiply defined.
+
+
+LaTeX Warning: Label `doc-func-members' multiply defined.
+
+
 LaTeX Warning: Label `doc-define-members' multiply defined.
 
 
@@ -1039,9 +1045,7 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 6.29996pt on input line 225.
  [1] [2]
-[3] [4
-
-]
+[3] [4]
 Package hyperref Info: Option `pageanchor' set `true' on input line 228.
 
 Chapter 1.
@@ -1056,6 +1060,7 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 12.9599pt on input line 1.
 ) [1
 
+
 ] [2
 
 ]
@@ -1068,7 +1073,7 @@ Chapter 3.
 
 ]
 Chapter 4.
-(dir_050edd66366d13764f98250ef6db77f6.tex
+(dir_68267d1309a1af8e8297ef4c3efbcdba.tex
 LaTeX Font Info:    Trying to load font information for TS1+phv on input line 6
 .
 
@@ -1078,32 +1083,31 @@ File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
 (Font)              scaled to size 8.99994pt on input line 6.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 15.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 9.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 8.09995pt on input line 15.
+(Font)              scaled to size 8.09995pt on input line 9.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 27.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 6.29996pt on input line 27.
 )
 [7] [8
 
 ]
 Chapter 5.
 (structcurrent__time__t.tex
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 5.
-
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 10
+.
 
 (C:\Users\Maja\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 28.
+(Font)              scaled to size 10.79993pt on input line 31.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 32.
+(Font)              scaled to size 7.19995pt on input line 42.
 
-[9]) (structgps__data__t.tex
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 22.
-LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 6.29996pt on input line 22.
- [10]) (structsensor__readings__t.tex [11] [12])
+[9]) (structgps__data__t.tex [10] [11]) (structsensor__readings__t.tex [12])
 [13] [14
 
 ]
@@ -1116,76 +1120,180 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--11
 [15]
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 91.
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 97.
-) (atm__sen__module_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--6
-
- []
-
-[16]) (atm__sen__module_8h_source.tex) (debug__mode_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--4
-
- []
-
-[17]) (debug__mode_8h_source.tex) (gps__module_8c.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--9
-
- []
-
-[18]
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 55.
-LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 8.99994pt on input line 55.
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 8.99994pt on input line 78.
+(Font)              scaled to size 8.99994pt on input line 97.
 
-Underfull \hbox (badness 10000) detected at line 78
+Underfull \hbox (badness 10000) detected at line 97
 [][][]
  []
 
-) (gps__module_8h.tex [19]
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 104.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 114.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 8.99994pt on input line 114.
+[16]) (atm__sen__module_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 8--11
+
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 43
+[][][]
+ []
+
+[17]) (atm__sen__module_8h_source.tex) (debug__mode_8h.tex [18]
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+
+ []
+
+) (debug__mode_8h_source.tex) (gps__module_8c.tex
+Underfull \hbox (badness 10000) in paragraph at lines 8--14
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) detected at line 33
+[][][]
+ []
+
+[20]
+Underfull \hbox (badness 10000) detected at line 77
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 90
+[][][]
+ []
+
+) (gps__module_8h.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--12
 
  []
 
-[20]
-Underfull \hbox (badness 10000) detected at line 131
+[21]
+Underfull \hbox (badness 10000) detected at line 42
 [][][]
  []
 
-) (gps__module_8h_source.tex [21]) (hw__config_8c.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--9
+[22]
+Underfull \hbox (badness 10000) detected at line 120
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 133
+[][][]
+ []
+
+) (gps__module_8h_source.tex [23]) (hw__config_8c.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--8
 
  []
 
-[22]) (main_8c.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--10
-
- []
-
-) (microsd__module_8c.tex
+[24]) (main_8c.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--11
 
  []
 
-[23]) (microsd__module_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--10
+) (microsd__module_8c.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--9
 
  []
 
-[24]) (microsd__module_8h_source.tex [25]) (time__manager_8c.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--6
+[25]
+LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <9> not available
+(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 17.
+LaTeX Font Info:    Font shape `TS1/phv/m/sl' will be
+(Font)              scaled to size 8.09995pt on input line 17.
+ [26]
+Underfull \hbox (badness 10000) detected at line 73
+[][][]
+ []
+
+) (microsd__module_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 8--15
 
  []
 
-[26]) (time__manager_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--6
+
+Underfull \hbox (badness 10000) detected at line 29
+[][][]
+ []
+
+[27]
+Underfull \hbox (badness 10000) detected at line 79
+[][][]
+ []
+
+) (microsd__module_8h_source.tex [28]) (radio__module_8c.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--9
 
  []
 
-[27]) (time__manager_8h_source.tex) [28]
+[29]
+Underfull \hbox (badness 10000) detected at line 31
+[][][]
+ []
+
+) (radio__module_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+
+ []
+
+[30]
+Underfull \hbox (badness 10000) detected at line 36
+[][][]
+ []
+
+) (radio__module_8h_source.tex) (time__manager_8c.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--8
+
+ []
+
+[31]
+Underfull \hbox (badness 10000) detected at line 60
+[][][]
+ []
+
+[32]
+Underfull \hbox (badness 10000) detected at line 76
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 123
+[][][]
+ []
+
+) (time__manager_8h.tex [33]
+Underfull \hbox (badness 10000) in paragraph at lines 8--11
+
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 38
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 59
+[][][]
+ []
+
+[34]
+Underfull \hbox (badness 10000) detected at line 75
+[][][]
+ []
+
+[35]
+Underfull \hbox (badness 10000) detected at line 122
+[][][]
+ []
+
+) (time__manager_8h_source.tex) [36]
 No file refman.ind.
 (refman.aux)
  ***********
@@ -1197,16 +1305,16 @@ L3 programming layer <2025-12-24>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 81699A66ED3C126536F6AE3259B5B17A;22708.
+(rerunfilecheck)             Checksum: B395CA14F035D43A24275A7D29000FB5;26516.
  ) 
 Here is how much of TeX's memory you used:
- 20809 strings out of 467871
- 372726 string characters out of 5418860
- 813177 words of memory out of 5000000
- 49026 multiletter control sequences out of 15000+600000
- 681483 words of font info for 107 fonts, out of 8000000 for 9000
+ 21116 strings out of 467871
+ 379818 string characters out of 5418860
+ 827893 words of memory out of 5000000
+ 49277 multiletter control sequences out of 15000+600000
+ 681834 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,16n,117p,1505b,860s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,16n,117p,1505b,1496s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Maja/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
 mmi10.pfb><C:/Users/Maja/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmsy10.pfb><C:/Users/Maja/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -1217,9 +1325,9 @@ type1/urw/helvetic/uhvb8a.pfb><C:/Users/Maja/AppData/Local/Programs/MiKTeX/font
 s/type1/urw/helvetic/uhvb8ac.pfb><C:/Users/Maja/AppData/Local/Programs/MiKTeX/f
 onts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/Maja/AppData/Local/Programs/MiKTeX
 /fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (34 pages, 290350 bytes).
+Output written on refman.pdf (42 pages, 345007 bytes).
 PDF statistics:
- 1369 PDF objects out of 1440 (max. 8388607)
- 281 named destinations out of 1000 (max. 500000)
- 953 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1670 PDF objects out of 1728 (max. 8388607)
+ 329 named destinations out of 1000 (max. 500000)
+ 1097 words of extra memory for PDF output out of 10000 (max. 10000000)
 

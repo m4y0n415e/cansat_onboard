@@ -13,16 +13,17 @@
 
 #define NRF905_PAYLOAD_SIZE 32 
 
-#define NRF_SPI_PORT spi1
-#define PIN_CSN      9
-#define PIN_SCK      10
-#define PIN_MOSI     11
-#define PIN_MISO     12
+#define NRF_SPI_PORT spi0      
 
-#define PIN_DR       13 // Data ready
-#define PIN_TX_EN    20
-#define PIN_TRX_CE   21
-#define PIN_PWR      22
+#define PIN_SCK      18
+#define PIN_MOSI     19
+#define PIN_MISO     16
+
+#define PIN_CSN      20
+#define PIN_TX_EN    21
+#define PIN_TRX_CE   22
+#define PIN_PWR      28
+#define PIN_DR       15
 
 // FUNCTIONS
 

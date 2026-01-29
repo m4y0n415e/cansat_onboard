@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CanSat Software: code/gps_module.h File Reference</title>
+<title>CanSat Software: src/gps_module.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">CanSat Software<span id="projectnumber">&#160;0.1</span>
+   <div id="projectname">CanSat Software<span id="projectnumber">&#160;0.2</span>
    </div>
   </td>
  </tr>
@@ -104,7 +104,7 @@ $(function(){initNavTree('gps__module_8h.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:gps_5Fdata_5Ft" id="r_gps_5Fdata_5Ft"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structgps__data__t.html">gps_data_t</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">These structures keep the parsed GPS position and time information.  <a href="structgps__data__t.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The structure keeps the parsed GPS position and time information.  <a href="structgps__data__t.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -128,7 +128,7 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>GPS module interface. </p>
-<p>This file handles the UART configuration for the GPS module (Pico), defines the data structure for holding parsed GPS coordinates/time, and provides functions to initialize and update the system. </p>
+<p>This file handles the UART configuration for Pico for the GPS module, defines the data structure for holding parsed GPS coordinates/time, and provides functions to initialize and update the system. </p><dl class="section see"><dt>See also</dt><dd><a href="https://github.com/kosma/minmea">https://github.com/kosma/minmea</a> for the NMEA parsing library documentation. </dd></dl>
 </div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a5477f5f7b97c4296fb85b0ec54ab4ce0" name="a5477f5f7b97c4296fb85b0ec54ab4ce0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5477f5f7b97c4296fb85b0ec54ab4ce0">&#9670;&#160;</a></span>GPS_BAUD_RATE</h2>
@@ -219,10 +219,9 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Retrieves the latest parsed GPS data. </p>
-<p>Copies the most recent valid GPS data into the provided gos_data_t structure.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Copies the most recent valid GPS data into the provided '<a class="el" href="structgps__data__t.html" title="The structure keeps the parsed GPS position and time information.">gps_data_t</a>' structure. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Pointer to a <a class="el" href="structgps__data__t.html" title="These structures keep the parsed GPS position and time information.">gps_data_t</a> struct where the data will be copied. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Pointer to a '<a class="el" href="structgps__data__t.html" title="The structure keeps the parsed GPS position and time information.">gps_data_t</a>' structure where the data will be copied. </td></tr>
   </table>
   </dd>
 </dl>
@@ -253,7 +252,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initializes the GPS UART connection and GPIO pins. </p>
-<p>Sets up the specified GPS_UART_ID with the baud rate defined in GPS_BAUD_RATE and configures the TX/RX pins. </p>
+<p>Sets up the specified GPS_UART_ID with the baud rate defined in GPS_BAUD_RATE and configures the TX/RX pins. </p><dl class="section note"><dt>Note</dt><dd>This must be called once at system startup before the main loop. </dd></dl>
 
 </div>
 </div>
@@ -281,8 +280,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Polls the UART for newly aquired GPS data and sends it to be parsed. </p>
-<p>This function should be called frequently (e.g., in the main loop). It reads available characters from the UART buffer and calls a function to process NMEA sentences.</p>
-<dl class="section return"><dt>Returns</dt><dd>true if a valid packet was fully parsed and data was updated. </dd>
+<p>This function should be called frequently (e.g., in the main loop). It reads available characters from the UART buffer and calls a function to process NMEA sentences. </p><dl class="section return"><dt>Returns</dt><dd>true if a valid packet was fully parsed and data was updated. </dd>
 <dd>
 false if no new complete packet is available yet. </dd></dl>
 
@@ -301,7 +299,7 @@ false if no new complete packet is available yet. </dd></dl>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a href="gps__module_8h.html">gps_module.h</a></li>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="gps__module_8h.html">gps_module.h</a></li>
     <li class="footer">Generated on <span class="timestamp"></span> for CanSat Software by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.0 </li>
   </ul>
 </div>

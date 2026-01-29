@@ -1,5 +1,10 @@
-\doxysection{code/\+debug\+\_\+mode.h File Reference}
-\hypertarget{debug__mode_8h}{}\label{debug__mode_8h}\index{code/debug\_mode.h@{code/debug\_mode.h}}
+\doxysection{src/\+debug\+\_\+mode.h File Reference}
+\hypertarget{debug__mode_8h}{}\label{debug__mode_8h}\index{src/debug\_mode.h@{src/debug\_mode.h}}
+
+
+Conditional debug logging and error handling macros.  
+
+
 {\ttfamily \+\#include $<$stdio.\+h$>$}\newline
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
@@ -9,6 +14,11 @@
 \+\#define \doxymbox{\hyperlink{debug__mode_8h_a3577749fb48d57a158b8ac1a0b3ab57e}{LOG}}(...)
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Conditional debug logging and error handling macros. 
+
+Provides the {\ttfamily \doxylink{debug__mode_8h_a3577749fb48d57a158b8ac1a0b3ab57e}{LOG}} macro which directs output to the standard I/\+O (USB/\+\+UART) only when {\ttfamily \doxylink{debug__mode_8h_ac80a3592e72fd96b772ee47a7d8e0d0a}{DEBUG\+\_\+\+MODE}} is defined. This allows for logging during development that can be completely compiled out for the final flight release. 
 
 \label{doc-define-members}
 \Hypertarget{debug__mode_8h_doc-define-members}

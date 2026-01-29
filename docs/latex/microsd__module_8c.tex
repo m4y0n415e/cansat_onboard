@@ -1,22 +1,22 @@
-\doxysection{code/\+microsd\+\_\+module.c File Reference}
-\hypertarget{microsd__module_8c}{}\label{microsd__module_8c}\index{code/microsd\_module.c@{code/microsd\_module.c}}
-{\ttfamily \+\#include $<$string.\+h$>$}\newline
+\doxysection{src/\+microsd\+\_\+module.c File Reference}
+\hypertarget{microsd__module_8c}{}\label{microsd__module_8c}\index{src/microsd\_module.c@{src/microsd\_module.c}}
 {\ttfamily \+\#include "{}microsd\+\_\+module.\+h"{}}\newline
 {\ttfamily \+\#include "{}debug\+\_\+mode.\+h"{}}\newline
-{\ttfamily \+\#include "{}ff.\+h"{}}\newline
-{\ttfamily \+\#include "{}f\+\_\+util.\+h"{}}\newline
-{\ttfamily \+\#include "{}diskio.\+h"{}}\newline
-{\ttfamily \+\#include "{}hw\+\_\+config.\+h"{}}\newline
 {\ttfamily \+\#include "{}hardware/\+spi.\+h"{}}\newline
+{\ttfamily \+\#include "{}ff.\+h"{}}\newline
+{\ttfamily \+\#include "{}sd\+\_\+card.\+h"{}}\newline
+{\ttfamily \+\#include $<$stdio.\+h$>$}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+sd\+\_\+card\+\_\+t \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{microsd__module_8c_ae019a1533d42fd3972c3f1eea96d23d4}{sd\+\_\+get\+\_\+by\+\_\+num}} (size\+\_\+t num)
+\item 
 bool \doxymbox{\hyperlink{microsd__module_8c_ab4bbf5729374ada6cfc3fc3ae7635a4c}{sd\+\_\+init}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes the Micro SD reader SPI connection and checks for successful mounting of the card. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{microsd__module_8c_a11853d053c03ae484ad6832fcda30b89}{save\+\_\+system\+\_\+data}} (\doxymbox{\hyperlink{structsensor__readings__t}{sensor\+\_\+readings\+\_\+t}} \texorpdfstring{$\ast$}{*}data, \doxymbox{\hyperlink{structcurrent__time__t}{current\+\_\+time\+\_\+t}} \texorpdfstring{$\ast$}{*}time)
-\item 
+\begin{DoxyCompactList}\small\item\em Saves all data collected from sensors onto the micro\+SD card in a \textquotesingle{}data\+\_\+log.\+txt\textquotesingle{} file. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{microsd__module_8c_a3f02e5000c59360a22796e685fd45e33}{save\+\_\+gps\+\_\+log}} (\doxymbox{\hyperlink{structgps__data__t}{gps\+\_\+data\+\_\+t}} \texorpdfstring{$\ast$}{*}gps)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Saves all GPS data onto the micro\+SD card in a \textquotesingle{}gps\+\_\+log.\+csv\textquotesingle{} file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \label{doc-func-members}
@@ -28,11 +28,37 @@ void \doxymbox{\hyperlink{microsd__module_8c_a3f02e5000c59360a22796e685fd45e33}{
 {\footnotesize\ttfamily \label{microsd__module_8c_a3f02e5000c59360a22796e685fd45e33} 
 void save\+\_\+gps\+\_\+log (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structgps__data__t}{gps\+\_\+data\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{gps}{}\end{DoxyParamCaption})}
 
+
+
+Saves all GPS data onto the micro\+SD card in a \textquotesingle{}gps\+\_\+log.\+csv\textquotesingle{} file. 
+
+It uses the functions available in the beforementioned library to save formatted strings with values read from the GPS kept in a \textquotesingle{}\doxylink{structgps__data__t}{gps\+\_\+data\+\_\+t}\textquotesingle{} structure onto the micro\+SD. 
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em \doxylink{structgps__data__t}{gps\+\_\+data\+\_\+t}} & Pointer to a structure keeping data read from GPS and properly parsed. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{microsd__module_8c_a11853d053c03ae484ad6832fcda30b89}\index{microsd\_module.c@{microsd\_module.c}!save\_system\_data@{save\_system\_data}}
 \index{save\_system\_data@{save\_system\_data}!microsd\_module.c@{microsd\_module.c}}
 \doxysubsubsection{\texorpdfstring{save\_system\_data()}{save\_system\_data()}}
 {\footnotesize\ttfamily \label{microsd__module_8c_a11853d053c03ae484ad6832fcda30b89} 
 void save\+\_\+system\+\_\+data (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structsensor__readings__t}{sensor\+\_\+readings\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{\doxymbox{\hyperlink{structcurrent__time__t}{current\+\_\+time\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{time}{}\end{DoxyParamCaption})}
+
+
+
+Saves all data collected from sensors onto the micro\+SD card in a \textquotesingle{}data\+\_\+log.\+txt\textquotesingle{} file. 
+
+It uses the functions available in the beforementioned library to save formatted strings with values read from sensors kept in a \textquotesingle{}\doxylink{structsensor__readings__t}{sensor\+\_\+readings\+\_\+t}\textquotesingle{} file onto the micro\+SD. 
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em data} & Pointer to a \textquotesingle{}\doxylink{structsensor__readings__t}{sensor\+\_\+readings\+\_\+t}\textquotesingle{} data struct which stores the data to to be saved on the micro\+SD card. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em time} & Pointer to a time-\/keeping structure that plays a role in time management for the timestamps in the \textquotesingle{}data\+\_\+log.\+txt\textquotesingle{} file. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{microsd__module_8c_ae019a1533d42fd3972c3f1eea96d23d4}\index{microsd\_module.c@{microsd\_module.c}!sd\_get\_by\_num@{sd\_get\_by\_num}}
+\index{sd\_get\_by\_num@{sd\_get\_by\_num}!microsd\_module.c@{microsd\_module.c}}
+\doxysubsubsection{\texorpdfstring{sd\_get\_by\_num()}{sd\_get\_by\_num()}}
+{\footnotesize\ttfamily \label{microsd__module_8c_ae019a1533d42fd3972c3f1eea96d23d4} 
+sd\+\_\+card\+\_\+t \texorpdfstring{$\ast$}{*} sd\+\_\+get\+\_\+by\+\_\+num (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{num}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
 
 \Hypertarget{microsd__module_8c_ab4bbf5729374ada6cfc3fc3ae7635a4c}\index{microsd\_module.c@{microsd\_module.c}!sd\_init@{sd\_init}}
 \index{sd\_init@{sd\_init}!microsd\_module.c@{microsd\_module.c}}
@@ -42,18 +68,10 @@ bool sd\+\_\+init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-\label{doc-var-members}
-\Hypertarget{microsd__module_8c_doc-var-members}
-\doxysubsection{Variable Documentation}
-\Hypertarget{microsd__module_8c_ae5bcde72e0e0b29ec86d00ba3e5cd51f}\index{microsd\_module.c@{microsd\_module.c}!fs@{fs}}
-\index{fs@{fs}!microsd\_module.c@{microsd\_module.c}}
-\doxysubsubsection{\texorpdfstring{fs}{fs}}
-{\footnotesize\ttfamily \label{microsd__module_8c_ae5bcde72e0e0b29ec86d00ba3e5cd51f} 
-FATFS fs}
+Initializes the Micro SD reader SPI connection and checks for successful mounting of the card. 
 
-\Hypertarget{microsd__module_8c_af37d8a9de667e1f1b4b8cfda020f33a5}\index{microsd\_module.c@{microsd\_module.c}!is\_mounted@{is\_mounted}}
-\index{is\_mounted@{is\_mounted}!microsd\_module.c@{microsd\_module.c}}
-\doxysubsubsection{\texorpdfstring{is\_mounted}{is\_mounted}}
-{\footnotesize\ttfamily \label{microsd__module_8c_af37d8a9de667e1f1b4b8cfda020f33a5} 
-bool is\+\_\+mounted}
+\begin{DoxyReturn}{Returns}
+true if the reader is correctly initialized and the micro\+SD card is mounted. 
 
+false if the reader setup or the micro\+SD card mount fails. 
+\end{DoxyReturn}

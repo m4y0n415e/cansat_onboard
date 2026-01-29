@@ -6,7 +6,7 @@
 #include "pico/error.h"
 #include "hardware/i2c.h"
 
-// standard return codes -  ok and error
+// Standard return codes -  OK and ERROR
 #define O2_OK   0
 #define O2_ERR -1
 

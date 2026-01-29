@@ -11,7 +11,8 @@ static time_t raw_seconds = 0;
 
 static current_time_t system_time;
 
-static uint32_t last_second_ms = 0; // This tracks the millisecond timer from the processor to detect when exactly 1 second has passed.
+// This tracks the millisecond timer from the processor to detect when exactly 1 second has passed.
+static uint32_t last_second_ms = 0; 
 
 void time_manager_init(void)
 {
@@ -82,12 +83,11 @@ void time_manager_sync(uint16_t year, uint8_t month, uint8_t day, uint8_t hour, 
 
 DWORD get_fattime(void)
 {
-    // 1. Get your central system time
     current_time_t *t = time_manager_get();
 
     DWORD fattime = 0;
 
-    // 2. Pack it into the 32-bit format FatFS expects
+    // 32-bit format expected by FatFS
     // Year:  Bits 31-25 (Offset from 1980)
     fattime |= (DWORD)(t->year - 1980) << 25;
     

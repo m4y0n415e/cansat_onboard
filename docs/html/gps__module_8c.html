@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CanSat Software: code/gps_module.c File Reference</title>
+<title>CanSat Software: src/gps_module.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">CanSat Software<span id="projectnumber">&#160;0.1</span>
+   <div id="projectname">CanSat Software<span id="projectnumber">&#160;0.2</span>
    </div>
   </td>
  </tr>
@@ -91,6 +91,9 @@ $(function(){initNavTree('gps__module_8c.html','',''); });
   <div class="headertitle"><div class="title">gps_module.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implementation of GPS NMEA parsing and UART handling.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="gps__module_8h_source.html">gps_module.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="time__manager_8h_source.html">time_manager.h</a>&quot;</code><br />
@@ -111,7 +114,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a3e59e78bf5f458e9d3ee2255abab936f" id="r_a3e59e78bf5f458e9d3ee2255abab936f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3e59e78bf5f458e9d3ee2255abab936f">gps_get_data</a> (<a class="el" href="structgps__data__t.html">gps_data_t</a> *data)</td></tr>
 <tr class="memdesc:a3e59e78bf5f458e9d3ee2255abab936f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the latest parsed GPS data.  <br /></td></tr>
 </table>
-<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation of GPS NMEA parsing and UART handling. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="gps__module_8h.html" title="GPS module interface.">gps_module.h</a> for the public API and data structures. </dd></dl>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="ae604e5b5d656e62a9e7d8f766599afd2" name="ae604e5b5d656e62a9e7d8f766599afd2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae604e5b5d656e62a9e7d8f766599afd2">&#9670;&#160;</a></span>NMEA_BUFFER_LEN</h2>
 
@@ -143,10 +149,9 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Retrieves the latest parsed GPS data. </p>
-<p>Copies the most recent valid GPS data into the provided gos_data_t structure.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Copies the most recent valid GPS data into the provided '<a class="el" href="structgps__data__t.html" title="The structure keeps the parsed GPS position and time information.">gps_data_t</a>' structure. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Pointer to a <a class="el" href="structgps__data__t.html" title="These structures keep the parsed GPS position and time information.">gps_data_t</a> struct where the data will be copied. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Pointer to a '<a class="el" href="structgps__data__t.html" title="The structure keeps the parsed GPS position and time information.">gps_data_t</a>' structure where the data will be copied. </td></tr>
   </table>
   </dd>
 </dl>
@@ -169,7 +174,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initializes the GPS UART connection and GPIO pins. </p>
-<p>Sets up the specified GPS_UART_ID with the baud rate defined in GPS_BAUD_RATE and configures the TX/RX pins. </p>
+<p>Sets up the specified GPS_UART_ID with the baud rate defined in GPS_BAUD_RATE and configures the TX/RX pins. </p><dl class="section note"><dt>Note</dt><dd>This must be called once at system startup before the main loop. </dd></dl>
 
 </div>
 </div>
@@ -189,8 +194,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Polls the UART for newly aquired GPS data and sends it to be parsed. </p>
-<p>This function should be called frequently (e.g., in the main loop). It reads available characters from the UART buffer and calls a function to process NMEA sentences.</p>
-<dl class="section return"><dt>Returns</dt><dd>true if a valid packet was fully parsed and data was updated. </dd>
+<p>This function should be called frequently (e.g., in the main loop). It reads available characters from the UART buffer and calls a function to process NMEA sentences. </p><dl class="section return"><dt>Returns</dt><dd>true if a valid packet was fully parsed and data was updated. </dd>
 <dd>
 false if no new complete packet is available yet. </dd></dl>
 
@@ -209,7 +213,7 @@ false if no new complete packet is available yet. </dd></dl>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li><li class="navelem"><a href="gps__module_8c.html">gps_module.c</a></li>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="gps__module_8c.html">gps_module.c</a></li>
     <li class="footer">Generated on <span class="timestamp"></span> for CanSat Software by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.0 </li>
   </ul>
 </div>

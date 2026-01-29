@@ -1,5 +1,10 @@
-\doxysection{code/\+time\+\_\+manager.h File Reference}
-\hypertarget{time__manager_8h}{}\label{time__manager_8h}\index{code/time\_manager.h@{code/time\_manager.h}}
+\doxysection{src/\+time\+\_\+manager.h File Reference}
+\hypertarget{time__manager_8h}{}\label{time__manager_8h}\index{src/time\_manager.h@{src/time\_manager.h}}
+
+
+Software RTC with GPS synchronization and Fat\+FS integration.  
+
+
 {\ttfamily \+\#include $<$stdint.\+h$>$}\newline
 {\ttfamily \+\#include $<$stdbool.\+h$>$}\newline
 {\ttfamily \+\#include $<$time.\+h$>$}\newline
@@ -7,19 +12,34 @@
 \begin{DoxyCompactItemize}
 \item 
 struct \doxymbox{\hyperlink{structcurrent__time__t}{current\+\_\+time\+\_\+t}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The structure stores data about the date, hour, minutes and seconds a reading was made and saved. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \doxymbox{\hyperlink{time__manager_8h_a3a22b1d94e247980fd1a29ae8eb19bf6}{time\+\_\+manager\+\_\+init}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes the Software Real-\/\+Time Clock (RTC). \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{time__manager_8h_a7f053b33e4a11799b757855ab7a4d6ea}{time\+\_\+manager\+\_\+update}} (void)
-\item 
-void \doxymbox{\hyperlink{time__manager_8h_ac3609b1d90b910e77e677a873c7dcb93}{time\+\_\+manager\+\_\+sync}} (uint8\+\_\+t hour, uint8\+\_\+t min, uint8\+\_\+t sec)
-\item 
+\begin{DoxyCompactList}\small\item\em Ticks the internal clock forward. \end{DoxyCompactList}\item 
 \doxymbox{\hyperlink{structcurrent__time__t}{current\+\_\+time\+\_\+t}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{time__manager_8h_ade7b230e754a1c68c280687071b58751}{time\+\_\+manager\+\_\+get}} (void)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Retrieves the current system time in a human-\/readable format. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{time__manager_8h_a31a781682c9a9732cb9109c8cd7300ac}{time\+\_\+manager\+\_\+sync}} (uint16\+\_\+t year, uint8\+\_\+t month, uint8\+\_\+t day, uint8\+\_\+t hour, uint8\+\_\+t min, uint8\+\_\+t sec)
+\begin{DoxyCompactList}\small\item\em Synchronizes the internal clock with an external source (e.\+g., GPS). Overwrites the internal time counter with new values provided by the GPS. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Software RTC with GPS synchronization and Fat\+FS integration. 
+
+Maintains system time using system ticks ({\ttfamily to\+\_\+ms\+\_\+since\+\_\+boot}), independent of hardware RTC. It features:\+
+\begin{DoxyItemize}
+\item a sync with GPS:\+ corrects drift and sets time/\+date via NMEA data.
+\item a Fat\+FS backend:\+ provides timestamps for SD card files.
+\item timezones:\+ applies static offsets defined by {\ttfamily \doxylink{time__manager_8c_ad002a29d99eafe389580285df1b17b62}{TIMEZONE\+\_\+\+OFFSET}}.
+\item Usage:\+ Calling {\ttfamily \doxylink{time__manager_8h_a3a22b1d94e247980fd1a29ae8eb19bf6}{time\+\_\+manager\+\_\+init()}} at startup, {\ttfamily \doxylink{time__manager_8h_a7f053b33e4a11799b757855ab7a4d6ea}{time\+\_\+manager\+\_\+update()}} periodically in the loop, and {\ttfamily \doxylink{time__manager_8h_a31a781682c9a9732cb9109c8cd7300ac}{time\+\_\+manager\+\_\+sync()}} when valid GPS data exists.
+\item \begin{DoxyNote}{Note}
+Replaces the default {\ttfamily rtc.\+c} to remove hardware dependencies that were trublesome. 
+\end{DoxyNote}
+
+\end{DoxyItemize}
 
 \label{doc-func-members}
 \Hypertarget{time__manager_8h_doc-func-members}
@@ -30,21 +50,79 @@ void \doxymbox{\hyperlink{time__manager_8h_ac3609b1d90b910e77e677a873c7dcb93}{ti
 {\footnotesize\ttfamily \label{time__manager_8h_ade7b230e754a1c68c280687071b58751} 
 \doxymbox{\hyperlink{structcurrent__time__t}{current\+\_\+time\+\_\+t}} \texorpdfstring{$\ast$}{*} time\+\_\+manager\+\_\+get (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
 
-\Hypertarget{time__manager_8h_a3a22b1d94e247980fd1a29ae8eb19bf6}\index{time\_manager.h@{time\_manager.h}!time\_manager\_init@{time\_manager\_init}}
+
+
+Retrieves the current system time in a human-\/readable format. 
+
+Converts the internal epoch timestamp ({\ttfamily raw\+\_\+seconds}) into a {\ttfamily \doxylink{structcurrent__time__t}{current\+\_\+time\+\_\+t}} structure containing year, month, day, hour, minute, and second. If the time is exactly 00:\+00:\+00 (Midnight), this function automatically resets the {\ttfamily photo\+\_\+count} field to 0.
+\begin{DoxyItemize}
+\item \begin{DoxyReturn}{Returns}
+current\+\_\+time\+\_\+t\texorpdfstring{$\ast$}{*} Pointer to the structure holding the current time. 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\Hypertarget{time__manager_8h_a3a22b1d94e247980fd1a29ae8eb19bf6}\index{time\_manager.h@{time\_manager.h}!time\_manager\_init@{time\_manager\_init}}
 \index{time\_manager\_init@{time\_manager\_init}!time\_manager.h@{time\_manager.h}}
 \doxysubsubsection{\texorpdfstring{time\_manager\_init()}{time\_manager\_init()}}
 {\footnotesize\ttfamily \label{time__manager_8h_a3a22b1d94e247980fd1a29ae8eb19bf6} 
 void time\+\_\+manager\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
 
-\Hypertarget{time__manager_8h_ac3609b1d90b910e77e677a873c7dcb93}\index{time\_manager.h@{time\_manager.h}!time\_manager\_sync@{time\_manager\_sync}}
+
+
+Initializes the Software Real-\/\+Time Clock (RTC). 
+
+Sets the internal system time to a default start date (January 1, 2026). It captures the current processor boot time ({\ttfamily to\+\_\+ms\+\_\+since\+\_\+boot}) to establish a baseline for the 1-\/second tick counter.
+\begin{DoxyItemize}
+\item \begin{DoxyNote}{Note}
+This must be called once at system startup before the main loop. 
+\end{DoxyNote}
+
+\end{DoxyItemize}\Hypertarget{time__manager_8h_a31a781682c9a9732cb9109c8cd7300ac}\index{time\_manager.h@{time\_manager.h}!time\_manager\_sync@{time\_manager\_sync}}
 \index{time\_manager\_sync@{time\_manager\_sync}!time\_manager.h@{time\_manager.h}}
 \doxysubsubsection{\texorpdfstring{time\_manager\_sync()}{time\_manager\_sync()}}
-{\footnotesize\ttfamily \label{time__manager_8h_ac3609b1d90b910e77e677a873c7dcb93} 
-void time\+\_\+manager\+\_\+sync (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{hour}{, }\item[{uint8\+\_\+t}]{min}{, }\item[{uint8\+\_\+t}]{sec}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+{\footnotesize\ttfamily \label{time__manager_8h_a31a781682c9a9732cb9109c8cd7300ac} 
+void time\+\_\+manager\+\_\+sync (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{year}{, }\item[{uint8\+\_\+t}]{month}{, }\item[{uint8\+\_\+t}]{day}{, }\item[{uint8\+\_\+t}]{hour}{, }\item[{uint8\+\_\+t}]{min}{, }\item[{uint8\+\_\+t}]{sec}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
 
-\Hypertarget{time__manager_8h_a7f053b33e4a11799b757855ab7a4d6ea}\index{time\_manager.h@{time\_manager.h}!time\_manager\_update@{time\_manager\_update}}
+
+
+Synchronizes the internal clock with an external source (e.\+g., GPS). Overwrites the internal time counter with new values provided by the GPS. 
+
+
+\begin{DoxyItemize}
+\item Automatically applies the defined {\ttfamily \doxylink{time__manager_8c_ad002a29d99eafe389580285df1b17b62}{TIMEZONE\+\_\+\+OFFSET}} to the provided UTC hour.
+\item Uses {\ttfamily mktime()} to safe-\/handle hour overflows. For example, if the GPS says 23:\+00 UTC and your offset is +2, the date automatically moves on to the next day.
+\item Resets the millisecond counter ({\ttfamily last\+\_\+second\+\_\+ms}) to zero, ensuring the next software "{}tick"{} happens exactly 1 second after this sync occurs.
+\item 
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em year} & Full year (e.\+g., 2026). \\
+\hline
+\doxymbox{\texttt{in}}  & {\em month} & Month number (1-\/12). \\
+\hline
+\doxymbox{\texttt{in}}  & {\em day} & Day of the month (1-\/31). \\
+\hline
+\doxymbox{\texttt{in}}  & {\em hour} & UTC Hour (0-\/23). \\
+\hline
+\doxymbox{\texttt{in}}  & {\em min} & Minute (0-\/59). \\
+\hline
+\doxymbox{\texttt{in}}  & {\em sec} & Second (0-\/59). \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}\Hypertarget{time__manager_8h_a7f053b33e4a11799b757855ab7a4d6ea}\index{time\_manager.h@{time\_manager.h}!time\_manager\_update@{time\_manager\_update}}
 \index{time\_manager\_update@{time\_manager\_update}!time\_manager.h@{time\_manager.h}}
 \doxysubsubsection{\texorpdfstring{time\_manager\_update()}{time\_manager\_update()}}
 {\footnotesize\ttfamily \label{time__manager_8h_a7f053b33e4a11799b757855ab7a4d6ea} 
 bool time\+\_\+manager\+\_\+update (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
 
+
+
+Ticks the internal clock forward. 
+
+This function checks the system\textquotesingle{}s millisecond timer. If 1000ms have passed since the last tick, it increments the internal {\ttfamily raw\+\_\+seconds} counter and updates the reference timer. This function is non-\/blocking and is designed to be called frequently inside the main {\ttfamily while(1)} loop.
+\begin{DoxyItemize}
+\item \begin{DoxyReturn}{Returns}
+true If a full second has passed during this call (useful for triggering 1Hz events like LED blinks). 
+
+false If less than 1 second has passed since the last update. 
+\end{DoxyReturn}
+
+\end{DoxyItemize}

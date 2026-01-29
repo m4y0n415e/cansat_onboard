@@ -142,9 +142,11 @@ static float mems_sensor_read(uint gpio_pin, float sensitivity_factor)
 {
     adc_select_input(gpio_pin - 26);
 
+    sleep_us(20);
+
     uint16_t raw = adc_read();
 
-    if (raw < 10) return -1.0f; // Error flag
+    if (raw < 50) return -1.0f; // Error flag
 
     float voltage = (float)raw * 3.3f / 4095;
 
